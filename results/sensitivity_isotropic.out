@@ -1,0 +1,2 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+max_tau30_G0.5 {'peak_Tmax_C': np.float64(247.94709467251153), 'peak_Tmean_C': np.float64(182.6806694885767), 'T1_peak_C': 490.0706, 'location_at_peak': 'terminal end'} 183.5 at 19.28191899400707

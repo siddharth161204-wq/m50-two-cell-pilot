@@ -1,0 +1,31 @@
+{
+  "max_tau30_G0.5": {
+    "E_body_J": 33222.9,
+    "tau_rel_s": 30.0,
+    "G_bus_WK": 0.5,
+    "mode": "isotropic",
+    "cross_max_s": {
+      "T_initial_low": 18.047282397574246,
+      "T_initial_mean": 19.28191899400707,
+      "T_initial_high": 20.656808275847748,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "cross_mean_s": {
+      "T_initial_low": 116.44357239646152,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "dT_at_183_K": 141.78352956860596,
+    "peak_Tmax_C": 247.94709467251153,
+    "peak_Tmean_C": 182.6806694885767,
+    "location_at_peak": "terminal end",
+    "T1_peak_C": 490.0706,
+    "energy_residual_rel": -2.286232507618698e-11,
+    "runtime_s": 248.53029441833496
+  }
+}

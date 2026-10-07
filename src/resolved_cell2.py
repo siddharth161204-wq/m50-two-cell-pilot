@@ -183,7 +183,8 @@ class Cell2Model:
         return self._fact[key]
 
     def run(self, t1_of_t, t_end=900.0, dt=0.1, g_pos=0.0, g_neg=0.0, gap_on=True, rad_gain_on=True,
-            conv_on=True, rad_loss_on=True, q_vol=None, q_shape="capacity", levels=None, record_every=0.5, T_init=None):
+            conv_on=True, rad_loss_on=True, q_vol=None, q_shape="capacity", levels=None, record_every=0.5, T_init=None,
+            volume_levels=None, cell1=None):
         """Integrate cell 2. t1_of_t(t) returns T1 in kelvin. q_vol(t) is an optional uniform internal source in W
         (full cell), used only by the verification runs. Returns a dict of crossings, peaks and a time series."""
         Ta = LP.T_AMB
@@ -204,9 +205,34 @@ class Cell2Model:
         d_gap = self.d_gap_unit if gap_on else 0.0 * self.d_gap_unit
         d_conv = self.d_conv_unit if conv_on else 0.0 * self.d_conv_unit
         E0 = self.C @ T
+        # two-way coupling (D25, exploratory): cell 1 becomes a lumped state driven by the resolved cell 2's heat draw
+        if cell1 is not None:
+            T1_state = Ta
+            e1, tau1 = cell1["e_body"], cell1["tau"]
+
+            def released(t):            # exact integral of the triangular pulse
+                if t <= 0:
+                    return 0.0
+                if t >= tau1:
+                    return e1
+                if t <= tau1 / 2:
+                    return e1 * 2 * (t / tau1) ** 2
+                return e1 * (1 - 2 * ((tau1 - t) / tau1) ** 2)
+            series[0] = (0.0, Ta, T.max(), (self.C @ T) / Ctot, int(np.argmax(T)))
+        vol_total = self.w_vol.sum()
+        vol_max = {lv: 0.0 for lv in (volume_levels or [])}
+        vol_series = []
         for n in range(n_steps):
             t_new = (n + 1) * dt
-            T1 = t1_of_t(t_new)
+            if cell1 is None:
+                T1 = t1_of_t(t_new)
+            else:
+                q_out = 2 * float((d_bus + d_gap) @ (T1_state - T))                       # strips and air gap, to cell 2
+                q_back = 2 * float(self.g_rad @ (T ** 4 - Ta ** 4))                       # radiation from cell 2, reciprocity
+                q_room = LP.H_CONV * LP.A_CONV * (T1_state - Ta) + LP.EPS * LP.SIGMA * LP.A_CELL * (T1_state ** 4 - Ta ** 4)
+                q_rel = (released(t_new) - released(t_new - dt)) / dt
+                T1_state = T1_state + dt * (q_rel - q_out + q_back - q_room) / LP.C_CELL
+                T1 = T1_state
             rhs = self.C / dt * T + d_conv * Ta + (d_gap + d_bus) * T1
             q_rad_gain = (T1 ** 4 - Ta ** 4) if rad_gain_on else 0.0
             rhs += self.g_rad * q_rad_gain
@@ -245,12 +271,19 @@ class Cell2Model:
                             geom_peak=self.location(imax))
             peak["Tmean"] = max(peak["Tmean"], Tmean)
             Tmax_prev, Tmean_prev = Tmax, Tmean
+            if volume_levels:
+                fr = {lv: float(self.w_vol[T >= lv].sum() / vol_total) for lv in volume_levels}
+                for lv, v in fr.items():
+                    vol_max[lv] = max(vol_max[lv], v)
             if (n + 1) % every == 0:
                 series.append((t_new, T1, Tmax, Tmean, imax))
+                if volume_levels:
+                    vol_series.append([t_new] + [fr[lv] for lv in volume_levels])
         stored = (self.C @ T - E0)
         energy = {k: 2 * v for k, v in energy.items()}
         net = energy["in_bus"] + energy["in_gap"] + energy["in_rad"] + energy["in_vol"] - energy["out_conv"] - energy["out_rad"]
-        return {"cross_max": cross_max, "cross_mean": cross_mean, "at_cross": extra, "peak": peak,
+        return {"vol_fraction_max": vol_max, "vol_series": np.array(vol_series) if vol_series else None,
+                "cross_max": cross_max, "cross_mean": cross_mean, "at_cross": extra, "peak": peak,
                 "series": np.array(series), "energy": energy, "stored_J": 2 * stored, "net_in_J": net, "T_final": T}
 
 

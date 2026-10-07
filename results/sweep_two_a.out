@@ -1,0 +1,21 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+07:19:14 two_E8751_tau10_G0.5: Tmax peak 113.8 C at terminal end, Tmean peak 67.3 C, lumped peak 79.5 C, 265 s
+07:23:33 two_E8751_tau30_G0.5: Tmax peak 111.9 C at terminal end, Tmean peak 67.3 C, lumped peak 79.5 C, 259 s
+07:27:28 two_E21495_tau10_G0.5: Tmax peak 241.4 C at terminal end, Tmean peak 122.9 C, lumped peak 152.4 C, 235 s
+07:32:20 two_E21495_tau30_G0.5: Tmax peak 236.7 C at terminal end, Tmean peak 123.2 C, lumped peak 152.8 C, 292 s
+07:37:32 two_E33223_tau10_G0.5: Tmax peak 355.9 C at terminal end, Tmean peak 167.1 C, lumped peak 211.2 C, 313 s
+07:42:10 two_E33223_tau30_G0.5: Tmax peak 348.3 C at terminal end, Tmean peak 167.9 C, lumped peak 212.3 C, 277 s
+07:46:47 two_E8751_tau10_G0.2: Tmax peak 86.8 C at terminal end, Tmean peak 62.6 C, lumped peak 68.9 C, 277 s
+07:51:43 two_E8751_tau30_G0.2: Tmax peak 86.6 C at terminal end, Tmean peak 62.6 C, lumped peak 68.9 C, 296 s
+07:55:38 two_E21495_tau10_G0.2: Tmax peak 174.2 C at terminal end, Tmean peak 110.8 C, lumped peak 125.2 C, 235 s
+07:59:41 two_E21495_tau30_G0.2: Tmax peak 174.0 C at terminal end, Tmean peak 111.0 C, lumped peak 125.4 C, 243 s
+08:03:50 two_E33223_tau10_G0.2: Tmax peak 250.7 C at terminal end, Tmean peak 147.7 C, lumped peak 168.1 C, 250 s
+08:07:48 two_E33223_tau30_G0.2: Tmax peak 250.8 C at terminal end, Tmean peak 148.3 C, lumped peak 168.9 C, 237 s
+08:12:01 two_E8751_tau10_G0.1: Tmax peak 67.6 C at terminal end, Tmean peak 57.0 C, lumped peak 60.0 C, 254 s
+08:15:55 two_E8751_tau30_G0.1: Tmax peak 67.6 C at terminal end, Tmean peak 57.0 C, lumped peak 60.0 C, 234 s
+08:19:42 two_E21495_tau10_G0.1: Tmax peak 124.9 C at terminal end, Tmean peak 97.1 C, lumped peak 103.8 C, 227 s
+08:23:35 two_E21495_tau30_G0.1: Tmax peak 125.2 C at terminal end, Tmean peak 97.3 C, lumped peak 104.0 C, 233 s
+08:27:04 two_E33223_tau10_G0.1: Tmax peak 173.9 C at terminal end, Tmean peak 127.2 C, lumped peak 136.5 C, 208 s
+08:31:17 two_E33223_tau30_G0.1: Tmax peak 174.6 C at terminal end, Tmean peak 127.7 C, lumped peak 137.1 C, 253 s
+08:35:31 two_E8751_tau10_G0.05: Tmax peak 56.6 C at terminal end, Tmean peak 50.8 C, lumped peak 52.0 C, 255 s
+08:39:03 two_E8751_tau30_G0.05: Tmax peak 56.6 C at terminal end, Tmean peak 50.8 C, lumped peak 52.0 C, 212 s

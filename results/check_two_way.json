@@ -1,0 +1,14 @@
+{
+  "case": [
+    33222.9,
+    30.0,
+    0.5
+  ],
+  "max_abs_T1_diff_K": 0.3081027605355757,
+  "max_abs_T2_diff_K": 0.169868364338555,
+  "T1_peak_two_way_C": 490.3339861442747,
+  "T1_peak_lumped_C": 490.0873,
+  "T2_peak_two_way_C": 212.20723707446325,
+  "T2_peak_lumped_C": 212.2706,
+  "Tmax_minus_Tmean_max_K": 0.8247351712282125
+}

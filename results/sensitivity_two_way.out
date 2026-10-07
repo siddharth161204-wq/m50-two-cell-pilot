@@ -1,0 +1,5 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+max_tau30_G0.5 {'peak_Tmax_C': np.float64(360.3131029354365), 'peak_Tmean_C': np.float64(182.2254561759877), 'T1_peak_C': 506.55146430485445, 'location_at_peak': 'terminal end'} 183.5 at 15.419513133157533
+max_tau10_G0.5 {'peak_Tmax_C': np.float64(363.8969099866048), 'peak_Tmean_C': np.float64(181.372397222946), 'T1_peak_C': 540.007305810652, 'location_at_peak': 'terminal end'} 183.5 at 5.6806361317294005
+median_tau30_G0.5 {'peak_Tmax_C': np.float64(244.95142783185133), 'peak_Tmean_C': np.float64(134.02320437674314), 'T1_peak_C': 340.18275868371086, 'location_at_peak': 'terminal end'} 183.5 at 19.805233039983907
+max_tau30_G0.2 {'peak_Tmax_C': np.float64(253.58873899781645), 'peak_Tmean_C': np.float64(153.92403509181958), 'T1_peak_C': 520.9155798802153, 'location_at_peak': 'terminal end'} 183.5 at 20.438286266254995

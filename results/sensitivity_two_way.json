@@ -1,0 +1,118 @@
+{
+  "max_tau30_G0.5": {
+    "E_body_J": 33222.9,
+    "tau_rel_s": 30.0,
+    "G_bus_WK": 0.5,
+    "mode": "two-way",
+    "cross_max_s": {
+      "T_initial_low": 14.736408152265764,
+      "T_initial_mean": 15.419513133157533,
+      "T_initial_high": 16.099887634098337,
+      "T_onset_low": 19.027259504227295,
+      "T_onset_mean": 20.39589826775023,
+      "T_onset_high": 21.965554094607327
+    },
+    "cross_mean_s": {
+      "T_initial_low": 130.9533688512843,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "dT_at_183_K": 151.9137467804822,
+    "peak_Tmax_C": 360.3131029354365,
+    "peak_Tmean_C": 182.2254561759877,
+    "location_at_peak": "terminal end",
+    "T1_peak_C": 506.55146430485445,
+    "energy_residual_rel": 2.8647798105436796e-12,
+    "runtime_s": 207.9272038936615
+  },
+  "max_tau10_G0.5": {
+    "E_body_J": 33222.9,
+    "tau_rel_s": 10.0,
+    "G_bus_WK": 0.5,
+    "mode": "two-way",
+    "cross_max_s": {
+      "T_initial_low": 5.419455252655439,
+      "T_initial_mean": 5.6806361317294005,
+      "T_initial_high": 5.945760260681148,
+      "T_onset_low": 7.094578326573908,
+      "T_onset_mean": 7.635945680286563,
+      "T_onset_high": 8.266063920410927
+    },
+    "cross_mean_s": {
+      "T_initial_low": 122.7971106605671,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "dT_at_183_K": 155.27096475494932,
+    "peak_Tmax_C": 363.8969099866048,
+    "peak_Tmean_C": 181.372397222946,
+    "location_at_peak": "terminal end",
+    "T1_peak_C": 540.007305810652,
+    "energy_residual_rel": 2.933566256734937e-12,
+    "runtime_s": 207.65644550323486
+  },
+  "median_tau30_G0.5": {
+    "E_body_J": 21495.3,
+    "tau_rel_s": 30.0,
+    "G_bus_WK": 0.5,
+    "mode": "two-way",
+    "cross_max_s": {
+      "T_initial_low": 18.5532411249525,
+      "T_initial_mean": 19.805233039983907,
+      "T_initial_high": 21.202384150338823,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "cross_mean_s": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "dT_at_183_K": 149.02450465746972,
+    "peak_Tmax_C": 244.95142783185133,
+    "peak_Tmean_C": 134.02320437674314,
+    "location_at_peak": "terminal end",
+    "T1_peak_C": 340.18275868371086,
+    "energy_residual_rel": 3.5603840179119965e-12,
+    "runtime_s": 221.47061777114868
+  },
+  "max_tau30_G0.2": {
+    "E_body_J": 33222.9,
+    "tau_rel_s": 30.0,
+    "G_bus_WK": 0.2,
+    "mode": "two-way",
+    "cross_max_s": {
+      "T_initial_low": 19.19051110441264,
+      "T_initial_mean": 20.438286266254995,
+      "T_initial_high": 21.80790590614713,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "cross_mean_s": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "dT_at_183_K": 149.40227578366807,
+    "peak_Tmax_C": 253.58873899781645,
+    "peak_Tmean_C": 153.92403509181958,
+    "location_at_peak": "terminal end",
+    "T1_peak_C": 520.9155798802153,
+    "energy_residual_rel": 2.8457593012943638e-12,
+    "runtime_s": 232.54230999946594
+  }
+}

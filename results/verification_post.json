@@ -1,0 +1,141 @@
+{
+  "case": {
+    "E_body_J": 21495.3,
+    "tau_rel_s": 30.0,
+    "G_bus_WK": 0.05
+  },
+  "V1": {
+    "max_rise_lumped_K": 8.215540317095588,
+    "max_abs_dev_K": 0.06507983568820919,
+    "max_rel_dev_of_rise": 0.009757178751275434,
+    "dev_at_lumped_peak_K": -0.0500661381761347,
+    "energy_in_rad_J": 849.8756137419302,
+    "stored_J": 427.9383227821272,
+    "net_in_J": 427.9383227721944,
+    "energy_residual_rel": 2.3210865872896263e-11,
+    "peak_Tmax_C": 34.00780062464207,
+    "peak_Tmean_C": 33.1657541071869,
+    "runtime_s": 367.1798400878906
+  },
+  "V1_pass": "True",
+  "V2_base": {
+    "cross_max": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "cross_mean": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "peak_Tmax_C": 96.71829759236698,
+    "peak_Tmean_C": 82.96295221755878,
+    "loc_peak": "terminal end",
+    "at_cross": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    }
+  },
+  "V2_dt_half": {
+    "cross_max": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "cross_mean": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "peak_Tmax_C": 96.71764903611637,
+    "peak_Tmean_C": 82.9637720987617,
+    "loc_peak": "terminal end",
+    "at_cross": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    }
+  },
+  "V3": {
+    "lumped_cross": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "resolved_mean_cross": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "resolved_max_cross": {
+      "T_initial_low": null,
+      "T_initial_mean": null,
+      "T_initial_high": null,
+      "T_onset_low": null,
+      "T_onset_mean": null,
+      "T_onset_high": null
+    },
+    "max_lumped_minus_resolved_mean_K": 3.024181071181488,
+    "min_lumped_minus_resolved_mean_K": 1.7053025658242404e-13,
+    "peak_lumped_C": 85.70069927611797,
+    "peak_resolved_mean_C": 82.96295221755878,
+    "peak_resolved_max_C": 96.71829759236698,
+    "busbar_heat_resolved_J": 3711.888617710151
+  },
+  "V2_changes_s": {
+    "T_initial_low": {
+      "dt_half_max": null,
+      "dt_half_mean": null
+    },
+    "T_initial_mean": {
+      "dt_half_max": null,
+      "dt_half_mean": null
+    },
+    "T_initial_high": {
+      "dt_half_max": null,
+      "dt_half_mean": null
+    },
+    "T_onset_low": {
+      "dt_half_max": null,
+      "dt_half_mean": null
+    },
+    "T_onset_mean": {
+      "dt_half_max": null,
+      "dt_half_mean": null
+    },
+    "T_onset_high": {
+      "dt_half_max": null,
+      "dt_half_mean": null
+    }
+  },
+  "V2_peak_changes_K": {
+    "dt_half_Tmax": -0.0006485562506099996,
+    "dt_half_Tmean": 0.0008198812029149849
+  }
+}

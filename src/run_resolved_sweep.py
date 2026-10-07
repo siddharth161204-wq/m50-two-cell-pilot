@@ -26,6 +26,15 @@ def read_lumped(out):
     return rows
 
 
+def cases_done(out, arrangement):
+    import glob
+    done = set()
+    for p in glob.glob(os.path.join(out, f"resolved_results_{arrangement}*.csv")):
+        with open(p) as f:
+            done |= {r["case"] for r in csv.DictReader(f)}
+    return done
+
+
 def fmt(x, nd=2):
     return "" if x is None else f"{x:.{nd}f}"
 
@@ -39,7 +48,7 @@ def main():
     ap.add_argument("--g", type=float, nargs="*", default=None)
     ap.add_argument("--refine", type=float, default=1.0)
     ap.add_argument("--dt", type=float, default=0.1)
-    ap.add_argument("--tag", default="")
+    ap.add_argument("--tag", default="", help="suffix for the CSV and log names only, so parallel workers write separate files")
     args = ap.parse_args()
 
     energies = sorted(LP.E_BODY_LIST)
@@ -64,7 +73,8 @@ def main():
     for g in gs:
         for e in energies:
             for tau in taus:
-                case = f"{args.arrangement}_E{int(round(e))}_tau{int(tau)}_G{g}{args.tag}"
+                case = f"{args.arrangement}_E{int(round(e))}_tau{int(tau)}_G{g}"
+                done |= cases_done(args.out, args.arrangement)        # other workers may have finished it
                 if case in done:
                     continue
                 t0 = time.time()

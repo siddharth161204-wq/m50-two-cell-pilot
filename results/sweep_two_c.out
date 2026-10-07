@@ -1,0 +1,13 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+08:46:48 two_E8751_tau10_G0.005: Tmax peak 40.1 C at gap-facing surface, Tmean peak 39.1 C, lumped peak 39.3 C, 264 s
+08:50:59 two_E8751_tau30_G0.005: Tmax peak 40.1 C at gap-facing surface, Tmean peak 39.1 C, lumped peak 39.3 C, 251 s
+08:55:33 two_E21495_tau10_G0.005: Tmax peak 60.1 C at gap-facing surface, Tmean peak 57.6 C, lumped peak 58.2 C, 274 s
+09:00:11 two_E21495_tau30_G0.005: Tmax peak 60.1 C at gap-facing surface, Tmean peak 57.7 C, lumped peak 58.2 C, 279 s
+09:04:57 two_E33223_tau10_G0.005: Tmax peak 76.9 C at gap-facing surface, Tmean peak 73.0 C, lumped peak 73.9 C, 285 s
+09:09:55 two_E33223_tau30_G0.005: Tmax peak 77.0 C at gap-facing surface, Tmean peak 73.1 C, lumped peak 74.0 C, 298 s
+09:15:01 two_E8751_tau10_G0.01: Tmax peak 42.2 C at terminal end, Tmean peak 40.9 C, lumped peak 41.2 C, 306 s
+09:19:55 two_E8751_tau30_G0.01: Tmax peak 42.3 C at terminal end, Tmean peak 41.0 C, lumped peak 41.2 C, 294 s
+09:24:31 two_E21495_tau10_G0.01: Tmax peak 64.4 C at terminal end, Tmean peak 61.5 C, lumped peak 62.1 C, 276 s
+09:28:46 two_E21495_tau30_G0.01: Tmax peak 64.5 C at terminal end, Tmean peak 61.6 C, lumped peak 62.2 C, 255 s
+09:33:12 two_E33223_tau10_G0.01: Tmax peak 82.2 C at terminal end, Tmean peak 78.1 C, lumped peak 79.1 C, 266 s
+09:37:37 two_E33223_tau30_G0.01: Tmax peak 82.4 C at terminal end, Tmean peak 78.3 C, lumped peak 79.2 C, 265 s

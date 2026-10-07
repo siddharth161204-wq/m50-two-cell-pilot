@@ -18,12 +18,27 @@ from resolved_cell2 import Cell2Model, lumped_one_way, t1_interpolator
 ap = argparse.ArgumentParser()
 ap.add_argument("--out", default="../results")
 ap.add_argument("--skip-refined", action="store_true")
+ap.add_argument("--only-refined", action="store_true", help="run only the refined-mesh V2 case; writes verification_post_refined.json")
 args = ap.parse_args()
 Ta = LP.T_AMB
 e_med = sorted(LP.E_BODY_LIST)[1]
 tau, g = 30.0, 0.05
 t1f, _ = t1_interpolator(os.path.join(args.out, "t1_series", LP.series_name(e_med, tau, g)))
 res = {"case": {"E_body_J": e_med, "tau_rel_s": tau, "G_bus_WK": g}}
+if args.only_refined:
+    t0 = time.time()
+    fine = Cell2Model(2.0)
+    rf = fine.run(t1f, g_pos=g / 2, g_neg=g / 2)
+    out = {"case": res["case"], "nodes": int(fine.mesh.p.shape[1]), "cross_max": rf["cross_max"], "cross_mean": rf["cross_mean"],
+           "peak_Tmax_C": rf["peak"]["Tmax"] - 273.15, "peak_Tmean_C": rf["peak"]["Tmean"] - 273.15,
+           "loc_peak": rf["peak"]["loc_peak"], "geom_peak": rf["peak"]["geom_peak"], "at_cross": rf["at_cross"],
+           "energy_residual_rel": (rf["stored_J"] - rf["net_in_J"]) / rf["net_in_J"], "runtime_s": time.time() - t0}
+    np.savez_compressed(os.path.join(args.out, "resolved_series", "V2_refined_median_case.npz"), t=rf["series"][:, 0],
+                        T1=rf["series"][:, 1], Tmax=rf["series"][:, 2], Tmean=rf["series"][:, 3])
+    with open(os.path.join(args.out, "verification_post_refined.json"), "w") as f:
+        json.dump(out, f, indent=2, default=str)
+    print(json.dumps(out, indent=1, default=str))
+    raise SystemExit(0)
 base = Cell2Model(1.0)
 
 # ---------------- V1 ----------------
@@ -43,6 +58,9 @@ res["V1"] = {"max_rise_lumped_K": float(rise.max()), "max_abs_dev_K": float(np.a
              "peak_Tmax_C": float(ts[:, 2].max() - 273.15), "peak_Tmean_C": float(ts[:, 3].max() - 273.15),
              "runtime_s": time.time() - t0}
 res["V1_pass"] = res["V1"]["max_rel_dev_of_rise"] < 0.01 and abs(res["V1"]["energy_residual_rel"]) < 1e-3
+os.makedirs(os.path.join(args.out, "resolved_series"), exist_ok=True)
+np.savez_compressed(os.path.join(args.out, "resolved_series", "V1_radiation_only_median.npz"), t=ts[:, 0], T1=ts[:, 1],
+                    Tmax=ts[:, 2], Tmean=ts[:, 3], T_lumped=sl[idx, 1])
 print("V1", json.dumps(res["V1"], indent=1), flush=True)
 
 
@@ -62,6 +80,8 @@ res["V2_dt_half"] = summary(r_dt)
 print("V2 base and dt/2 done", round(time.time() - t0), "s", flush=True)
 ts = r_base["series"]
 idx = (ts[:, 0] / 0.1).round().astype(int)
+np.savez_compressed(os.path.join(args.out, "resolved_series", "V3_median_case.npz"), t=ts[:, 0], T1=ts[:, 1],
+                    Tmax=ts[:, 2], Tmean=ts[:, 3], T_lumped=s_be[idx, 1])
 res["V3"] = {"lumped_cross": c_be, "resolved_mean_cross": r_base["cross_mean"], "resolved_max_cross": r_base["cross_max"],
              "max_lumped_minus_resolved_mean_K": float((s_be[idx, 1] - ts[:, 3]).max()),
              "min_lumped_minus_resolved_mean_K": float((s_be[idx, 1] - ts[:, 3]).min()),
