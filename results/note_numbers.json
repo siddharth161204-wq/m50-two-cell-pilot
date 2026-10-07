@@ -240,6 +240,24 @@
     "geom_peak": "positive terminal end",
     "energy_residual_rel": 2.7567790872284838e-12
   },
+  "v2_max_tau10_G0.5_refine2_dt0.1": {
+    "nodes": 297057,
+    "dt_s": 0.1,
+    "reference": "unrounded base run v2_max_tau10_G0.5_refine1_dt0.1.json",
+    "cross_max_changes_s": {
+      "T_initial_low": 0.0007523866537377799,
+      "T_initial_mean": 7.277399710314825e-05,
+      "T_initial_high": -0.0008051561800801466,
+      "T_onset_low": -0.0070621700667938825,
+      "T_onset_mean": -0.011690861753652193,
+      "T_onset_high": -0.020021672684661596
+    },
+    "peak_Tmax_change_K": 1.4889778364049562,
+    "peak_Tmean_change_K": -0.3058218653034146,
+    "loc_peak": "terminal end",
+    "geom_peak": "positive terminal end",
+    "energy_residual_rel": -1.6630892401318955e-11
+  },
   "v2_max_tau30_G0.5_refine1_dt0.05": {
     "nodes": 39990,
     "dt_s": 0.05,
@@ -283,6 +301,7 @@
   },
   "V2_max_abs_change_hottest_crossing_s": {
     "v2_max_tau10_G0.5_refine1_dt0.05": 0.0050379078655442555,
+    "v2_max_tau10_G0.5_refine2_dt0.1": 0.020021672684661596,
     "v2_max_tau30_G0.5_refine1_dt0.05": 0.0032736588142956435,
     "v2_max_tau30_G0.5_refine2_dt0.1": 0.0847956586240528
   },
