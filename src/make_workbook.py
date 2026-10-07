@@ -125,9 +125,16 @@ for key in sorted(k for k in N if k.startswith("v2_")):
     _, en, tau, g, ref, dt = key.split("_")
     what = f"mesh refined ({v['nodes']:,} nodes)" if ref != "refine1" else f"time step halved ({v['dt_s']:g} s)"
     lab = f"V2 {en} energy, {tau.replace('tau', 'tau ')} s, {float(g[1:]) * 1000:g} mW/K, {what}"
+    lab += " (against an unrounded base run)" if v.get("reference", "").startswith("unrounded") else " (against the sweep table, rounded to 0.01 s)"
     ver += [[f"{lab}: largest change in a hottest-point crossing time (s)", N["V2_max_abs_change_hottest_crossing_s"][key]],
             [f"{lab}: change in resolved max peak (K)", v["peak_Tmax_change_K"]],
             [f"{lab}: change in resolved mean peak (K)", v["peak_Tmean_change_K"]]]
+for key, v in N.get("V2_base_runs", {}).items():
+    ver.append([f"Unrounded rerun of the base case ({key}): crossing times agree with the sweep table to its 0.01 s rounding",
+                "Yes" if v["matches_sweep_table_to_0.01_s"] else "No"])
+for key, v in N.get("rerun_check", {}).items():
+    ver += [[f"Rerun of {key} with the final code: fields differing from the registered row, run time excepted", len(v["fields_differing_except_runtime"])],
+            [f"Rerun of {key} with the final code: largest difference in any recorded time series", v["max_abs_series_difference"]]]
 ver += [["V3 median case: lumped peak (C)", N["V3"]["peak_lumped_C"]], ["V3 median case: resolved mean peak (C)", N["V3"]["peak_resolved_mean_C"]],
         ["V3 median case: resolved max peak (C)", N["V3"]["peak_resolved_max_C"]],
         ["Largest energy residual over the 42 cases (relative)", N["energy_residual_max_abs"]]]
@@ -136,7 +143,10 @@ if os.path.exists(cw):
     c = json.load(open(cw))
     ver += [["Two-way coupling check (roll at 1e4 W/mK, 33.2 kJ, 30 s, 500 mW/K): largest difference in cell 1 from the lumped pair (K)", c["max_abs_T1_diff_K"]],
             ["Two-way coupling check: largest difference in cell 2 mean from the lumped pair (K)", c["max_abs_T2_diff_K"]]]
-sheet(wb, "Verification", ["Check", "Value"], ver, widths={1: 110, 2: 16})
+wsv = sheet(wb, "Verification", ["Check", "Value"], ver, widths={1: 110, 2: 16})
+for (c,) in wsv.iter_rows(min_row=2, min_col=2, max_col=2):
+    if isinstance(c.value, float) and c.value != 0 and abs(c.value) < 1e-4:
+        c.number_format = "0.0E+00"
 
 # exploratory runs, not pre-registered (DECISIONS.md D23, D25, D26)
 ex_rows = []

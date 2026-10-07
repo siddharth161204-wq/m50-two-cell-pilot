@@ -1,0 +1,81 @@
+{
+  "E_body_J": 33222.9,
+  "tau_rel_s": 30.0,
+  "G_bus_WK": 0.5,
+  "refine": 1.0,
+  "dt_s": 0.1,
+  "nodes": 39990,
+  "cross_max": {
+    "T_initial_low": 14.819954987819447,
+    "T_initial_mean": 15.513559143482286,
+    "T_initial_high": 16.208955265616947,
+    "T_onset_low": 19.244338650626784,
+    "T_onset_mean": 20.697877200235066,
+    "T_onset_high": 22.412171020273874
+  },
+  "cross_mean": {
+    "T_initial_low": null,
+    "T_initial_mean": null,
+    "T_initial_high": null,
+    "T_onset_low": null,
+    "T_onset_mean": null,
+    "T_onset_high": null
+  },
+  "at_cross": {
+    "T_initial_low": {
+      "loc": "terminal end",
+      "geom": "positive terminal end",
+      "r_mm": 0.0,
+      "theta_deg": 0.0,
+      "z_mm": 70.1,
+      "Tmax_minus_Tmean_K": 138.3094741699278
+    },
+    "T_initial_mean": {
+      "loc": "terminal end",
+      "geom": "positive terminal end",
+      "r_mm": 0.0,
+      "theta_deg": 0.0,
+      "z_mm": 70.1,
+      "Tmax_minus_Tmean_K": 151.9420444058245
+    },
+    "T_initial_high": {
+      "loc": "terminal end",
+      "geom": "positive terminal end",
+      "r_mm": 0.0,
+      "theta_deg": 0.0,
+      "z_mm": 70.1,
+      "Tmax_minus_Tmean_K": 165.39635129059383
+    },
+    "T_onset_low": {
+      "loc": "terminal end",
+      "geom": "positive terminal end",
+      "r_mm": 0.0,
+      "theta_deg": 0.0,
+      "z_mm": 70.1,
+      "Tmax_minus_Tmean_K": 216.69191143190523
+    },
+    "T_onset_mean": {
+      "loc": "terminal end",
+      "geom": "positive terminal end",
+      "r_mm": 0.0,
+      "theta_deg": 0.0,
+      "z_mm": 70.1,
+      "Tmax_minus_Tmean_K": 236.13574473506952
+    },
+    "T_onset_high": {
+      "loc": "terminal end",
+      "geom": "positive terminal end",
+      "r_mm": 0.0,
+      "theta_deg": 0.0,
+      "z_mm": 70.1,
+      "Tmax_minus_Tmean_K": 256.5218730368238
+    }
+  },
+  "peak_Tmax_C": 348.29312017229313,
+  "t_peak_Tmax_s": 30.0,
+  "loc_peak": "terminal end",
+  "geom_peak": "positive terminal end",
+  "peak_Tmean_C": 167.8869250925103,
+  "energy_residual_rel": 2.8081740313027823e-12,
+  "runtime_s": 245.5587158203125
+}

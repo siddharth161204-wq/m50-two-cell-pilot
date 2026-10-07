@@ -78,14 +78,29 @@ N["V1"] = {"max_rel_dev_percent": 100 * vp["V1"]["max_rel_dev_of_rise"], "max_ab
            "max_rise_K": vp["V1"]["max_rise_lumped_K"], "energy_residual": vp["V1"]["energy_residual_rel"]}
 N["V2_median_dt_half_peak_changes_K"] = vp["V2_peak_changes_K"]
 N["V3"] = {k: vp["V3"][k] for k in ("peak_lumped_C", "peak_resolved_mean_C", "peak_resolved_max_C")}
-for name in glob.glob(os.path.join(O, "v2_*.json")):
+# V2 changes: against an unrounded rerun of the base case (refine 1, dt 0.1 s) where one exists, because the sweep table
+# rounds crossing times to 0.01 s; otherwise against the sweep table
+N["V2_base_runs"] = {}
+for name in sorted(glob.glob(os.path.join(O, "v2_*.json"))):
+    key = os.path.basename(name)[:-5]
     v = json.load(open(name))
-    base = row(two, v["E_body_J"], v["tau_rel_s"], v["G_bus_WK"])
-    ch = {k: (None if (v["cross_max"][k] is None or not base[f"{k}_resolved_max_s"]) else v["cross_max"][k] - float(base[f"{k}_resolved_max_s"]))
-          for k in LP.LEVELS}
-    N[os.path.basename(name)[:-5]] = {"nodes": v["nodes"], "dt_s": v["dt_s"], "cross_max_changes_s": ch,
-                                      "peak_Tmax_change_K": v["peak_Tmax_C"] - float(base["Tmax_resolved_peak_C"]),
-                                      "peak_Tmean_change_K": v["peak_Tmean_C"] - float(base["Tmean_resolved_peak_C"])}
+    tab = row(two, v["E_body_J"], v["tau_rel_s"], v["G_bus_WK"])
+    if v["refine"] == 1.0 and abs(v["dt_s"] - 0.1) < 1e-12:
+        N["V2_base_runs"][key] = {"matches_sweep_table_to_0.01_s": all(
+            (v["cross_max"][k] is None) == (not tab[f"{k}_resolved_max_s"]) and
+            (v["cross_max"][k] is None or abs(round(v["cross_max"][k], 2) - float(tab[f"{k}_resolved_max_s"])) < 1e-9) for k in LP.LEVELS)}
+        continue
+    bpath = os.path.join(O, f"v2_{key.split('_')[1]}_tau{int(v['tau_rel_s'])}_G{v['G_bus_WK']}_refine1_dt0.1.json")
+    if os.path.exists(bpath):
+        bj = json.load(open(bpath))
+        bc, bmax, bmean, ref = bj["cross_max"], bj["peak_Tmax_C"], bj["peak_Tmean_C"], "unrounded base run " + os.path.basename(bpath)
+    else:
+        bc = {k: f(tab[f"{k}_resolved_max_s"]) for k in LP.LEVELS}
+        bmax, bmean, ref = float(tab["Tmax_resolved_peak_C"]), float(tab["Tmean_resolved_peak_C"]), "sweep table, crossing times rounded to 0.01 s"
+    ch = {k: (None if (v["cross_max"][k] is None or bc[k] is None) else v["cross_max"][k] - bc[k]) for k in LP.LEVELS}
+    N[key] = {"nodes": v["nodes"], "dt_s": v["dt_s"], "reference": ref, "cross_max_changes_s": ch,
+              "peak_Tmax_change_K": v["peak_Tmax_C"] - bmax, "peak_Tmean_change_K": v["peak_Tmean_C"] - bmean,
+              "loc_peak": v["loc_peak"], "geom_peak": v["geom_peak"], "energy_residual_rel": v["energy_residual_rel"]}
 pr = os.path.join(O, "verification_post_refined.json")
 if os.path.exists(pr):
     v = json.load(open(pr))
@@ -138,6 +153,12 @@ for mode in ("two_way", "isotropic"):
             "lumped_minus_mean_K": f(b["T2max_lumped_C"]) - v["peak_Tmean_C"],
             "mean_rise_reduction_percent": 100 * (1 - (v["peak_Tmean_C"] - 25) / lum_rise),
             "T1_peak_C": v["T1_peak_C"], "T1_peak_lumped_pair_C": f(b["T1max_C"]), "dT_at_183_K": v["dT_at_183_K"],
-            "location_at_peak": v["location_at_peak"], "energy_residual_rel": v["energy_residual_rel"]}
+            "location_at_peak": v["location_at_peak"], "energy_residual_rel": v["energy_residual_rel"],
+            "shift_hottest_crossing_by_level_s": {k: (None if v["cross_max_s"][k] is None or not b[f"{k}_resolved_max_s"]
+                                                      else v["cross_max_s"][k] - float(b[f"{k}_resolved_max_s"])) for k in LP.LEVELS}}
+rc = os.path.join(O, "rerun_check.json")
+if os.path.exists(rc):
+    N["rerun_check"] = {k: {"fields_differing_except_runtime": v["fields_differing_except_runtime"],
+                            "max_abs_series_difference": max(v["max_abs_series_difference"].values())} for k, v in json.load(open(rc)).items()}
 json.dump(N, open(os.path.join(O, "note_numbers.json"), "w"), indent=2)
 print(json.dumps(N, indent=1)[:6000])
