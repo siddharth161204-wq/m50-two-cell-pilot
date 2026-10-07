@@ -1,0 +1,19 @@
+Battery Failure Databank, revision 2 ("Spreadsheet last updated February 2024" on the landing page)
+Landing page: https://www.nlr.gov/transportation/battery-failure (formerly www.nrel.gov/transportation/battery-failure.html)
+File: https://www.nlr.gov/media/docs/libraries/tsdc/battery-failure-databank-revision2-feb24.xlsx?sfvrsn=7b7f89_1
+Size: 175,052 bytes. SHA-256: 18a6b0ed0bbc881295ef9c832e4dd1937b653702ec6481834e3c6ee50c86a7c4
+Retrieved 7 October 2026. Sheets: Disclaimer, ReadMe, Battery Failure Databank (383 test rows).
+Described in: D.P. Finegan et al., The battery failure databank: Insights from an open-access database of thermal
+runaway behaviors of Li-ion cells and a resource for benchmarking risks, Journal of Power Sources 597 (2024) 234106,
+doi:10.1016/j.jpowsour.2024.234106.
+
+databank_m50_rows.csv: every row whose Cell-Description contains "M50" (25 rows, all "LG 21700-M50 (BV)"), all 43
+columns, values exactly as stored in the workbook. SHA-256 of the CSV: b5a8792d390acd7031c555ac3230a3206405309c4a663887ffc9b9b17e57c000.
+extract_databank.py regenerates it from the workbook and checks both hashes.
+
+ReadMe definitions used here (verbatim from the workbook's ReadMe sheet):
+  Corrected-Total-Energy-Yield-kJ: "Calculated total energy yield, corrected for both conductive heat loss and also for
+  the heat associated with unrecovered cell mass."
+  Energy-Fraction-Cell-Body-kJ: "Fraction of the total energy released through the cell casing."
+  Pre-Test-Cell-Open-Circuit-Voltage-V: "Open circuit voltage of the cell prior to experiment."
+The workbook has no state-of-charge column; see DECISIONS.md D18 for the rule that identifies 100 % SOC tests.

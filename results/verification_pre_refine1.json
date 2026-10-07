@@ -1,0 +1,87 @@
+{
+  "mesh": {
+    "nodes": 39990,
+    "tets": 220248,
+    "n_rings": 21,
+    "n_layers": 43,
+    "n_nodes_2d": 930,
+    "n_tris_2d": 1748,
+    "min_abs_vol": 8.695421593819688e-12
+  },
+  "geometry_mesh_vs_exact": {
+    "volume_mesh": 2.450294604612721e-05,
+    "volume_exact": 2.4511664854465075e-05,
+    "A_outer_mesh": 0.005345433342315152,
+    "A_outer_exact": 0.0053460953425035545,
+    "A_face_mesh": 0.0011615869657775953,
+    "A_face_exact": 0.0011616902774627996,
+    "A_conv_mesh": 0.004183846376537557,
+    "A_conv_exact": 0.0041844050650407544,
+    "A_disc_mesh": 5.012205781249981e-05,
+    "A_disc_exact": 5.0265482457436686e-05,
+    "A_annulus_mesh": 0.0001729782611842853,
+    "A_annulus_exact": 0.00017295252956175212,
+    "FA_lat_mesh": 0.0007430690668589903,
+    "FA_lat_exact": 0.0007431351518120096
+  },
+  "V0": {
+    "busbar_two_strip": {
+      "resolved_W": 35.0,
+      "lumped_W": 35.0,
+      "rel_diff": 0.0
+    },
+    "busbar_one_strip": {
+      "resolved_W": 35.0,
+      "lumped_W": 35.0,
+      "rel_diff": 0.0
+    },
+    "air_gap": {
+      "resolved_W": 6.098873956679698,
+      "lumped_W": 6.098873956679698,
+      "rel_diff": 0.0
+    },
+    "radiation_gain": {
+      "resolved_W": 6.261656456259907,
+      "lumped_W": 6.261656456259907,
+      "rel_diff": 0.0
+    },
+    "room_convection": {
+      "resolved_W": 2.1696140262236328,
+      "lumped_W": 2.169614026223632,
+      "rel_diff": 4.0937162507474347e-16
+    },
+    "room_radiation": {
+      "resolved_W": 1.7227628652180424,
+      "lumped_W": 1.7227628652180422,
+      "rel_diff": 1.288886644865822e-16
+    },
+    "net_into_cell2_vs_script": {
+      "resolved_W": 43.468153521497925,
+      "lumped_W": 43.468153521497925,
+      "rel_diff": 0.0
+    }
+  },
+  "V0_pass": true,
+  "V1a": {
+    "max_abs_dev_K": 1.0527401173021644e-10,
+    "max_rel_dev_of_rise": 3.2503351121704367e-13,
+    "final_rise_K": 323.88663967611296,
+    "stored_J": 20000.000000006483,
+    "net_in_J": 20000.0,
+    "energy_residual_rel": 3.241439117118716e-13,
+    "peak_Tmax_minus_Tmean_K": 20.185591212341933
+  },
+  "V1a_pass": true,
+  "A1_radial": {
+    "max_rise_analytic_K": 14.830865384615379,
+    "max_abs_err_K": 0.07753868380416407,
+    "rel_err": 0.005228196857925626
+  },
+  "A2_axial": {
+    "k_eff": 25.0,
+    "max_rise_analytic_K": 4.914711000000011,
+    "max_abs_err_K": 0.002960927036440353,
+    "rel_err": 0.0006024620850423038
+  },
+  "runtime_s": 132.55848908424377
+}

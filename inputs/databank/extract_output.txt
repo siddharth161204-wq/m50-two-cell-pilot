@@ -1,0 +1,10 @@
+rows file SHA-256 b5a8792d390acd7031c555ac3230a3206405309c4a663887ffc9b9b17e57c000 (matches)
+100 % SOC tests (OCV >= 4.1 V): 17; by trigger: {'Heater (Non-ISC)': 7, 'Nail': 10}
+excluded: [('DLS19_Feb_Run089', None), ('SPR2021_ESTA_8B100-01_SOC_RUN199', 3.8277), ('SPR2021_ESTA_8B100-01_SOC_RUN200', 3.8249), ('SPR2021_ESTA_8B100-01_SOC_RUN201', 3.8199), ('SPR2021_ESTA_8B100-01_SOC_RUN202', 3.8257), ('SPR2021_ESTA_8B100-01_SOC_RUN203', 3.443), ('SPR2021_ESTA_8B100-01_SOC_RUN204', 3.449), ('SPR2021_ESTA_8B100-01_SOC_RUN205', 3.447)]
+cell-body energy kJ: min 8.7513  median 21.4953  max 33.2229
+  Heater (Non-ISC): n=7 min 8.751 median 11.543 max 21.894
+  Nail: n=10 min 18.671 median 25.884 max 33.223
+corrected total kJ: 69.2 to 110.8 (median 96.9); cell-body share 10.2 to 31.1 % (median 22.6 %)
+mass ejected g: 30.4 to 53.9 (median 40.9)
+if tests without a recorded OCV were included: n=18, median 21.6946 kJ
+E_BODY_LIST = [8751.3, 21495.3, 33222.9]
