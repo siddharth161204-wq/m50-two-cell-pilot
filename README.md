@@ -105,7 +105,7 @@ Several sweep workers can run at once with different `--tag` values; each skips 
 
 ## Sources and credits
 
-- Battery Failure Databank, revision 2 (February 2024), National Renewable Energy Laboratory (now National Laboratory of the Rockies), U.S. Department of Energy; described in D.P. Finegan et al., Journal of Power Sources 597 (2024) 234106. The rows used are in `inputs/databank/` with the Databank's notice, which must accompany every copy.
+- Battery Failure Databank, revision 2 (February 2024), National Renewable Energy Laboratory (now National Laboratory of the Rockies), U.S. Department of Energy; described in D.P. Finegan et al., Journal of Power Sources 597 (2024) 234106. The rows used are in `inputs/databank/` with the Databank's notice, which must accompany every copy. The Battery Failure Databank is provided by the U.S. Department of Energy's National Renewable Energy Laboratory, operated by Alliance for Sustainable Energy, LLC (DOE/NREL/ALLIANCE); its notice accompanies the rows used, in `inputs/databank/`.
 - B.C. Koenig, P. Zhao, S. Deng, Comprehensive thermal-kinetic uncertainty quantification of lithium-ion battery thermal runaway via Bayesian chemical reaction neural networks, Chemical Engineering Journal 507 (2025) 160402.
 - K. O'Regan, F. Brosa Planella, W.D. Widanage, E. Kendrick, Thermal-electrochemical parameters of a high energy lithium-ion cylindrical battery, Electrochimica Acta 425 (2022) 140700, through the PyBaMM parameter set ORegan2022.
 - View factor of parallel equal cylinders: F.P. Incropera et al., Fundamentals of Heat and Mass Transfer, two-dimensional view factor table.

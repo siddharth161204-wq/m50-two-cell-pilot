@@ -1,6 +1,6 @@
 # Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot
 
-Siddharth Satte, Independent researcher, Pune, India, 7 October 2026. [doi.org/10.5281/zenodo.23253738](https://doi.org/10.5281/zenodo.23253738){.nobr}; [github.com/siddharth161204-wq/m50-two-cell-pilot](https://github.com/siddharth161204-wq/m50-two-cell-pilot){.nobr}, predictions commit c57ccb8, public at 06:42 UTC, before any coupled resolved run.
+Siddharth Satte, Independent researcher, Pune, India, 7 October 2026. Predictions commit c57ccb8, public at 06:42 UTC before any coupled resolved run. [doi.org/10.5281/zenodo.23253738](https://doi.org/10.5281/zenodo.23253738){.nobr}; [github.com/siddharth161204-wq/m50-two-cell-pilot](https://github.com/siddharth161204-wq/m50-two-cell-pilot){.nobr}.
 
 <div class="headline">
 
@@ -40,4 +40,6 @@ Figure 1. Registered runs, two strips, 30 s release. (a) Peak temperatures again
 
 ## What it means for module-scale modelling
 
-Whether a resolved neighbour reaches onset before or after a lumped one depends on how much of it must be hot: where the lumped node gets there at all (33.2 kJ, 500 mW/K), the hottest point is 64 s sooner and the hottest 1 % 54 to 58 s sooner, but the mean never gets there. Whether onset in a neighbour begins locally is therefore a question a whole-cell threshold cannot settle, so the next step is to run onset kinetics, such as those of Koenig, Zhao and Deng, on the resolved field with the cap and tabs included.
+Whether a resolved neighbour reaches onset before or after a lumped one depends on how much of it must be hot: where the lumped node gets there at all (33.2 kJ, 500 mW/K), the hottest point is 64 s sooner and the hottest 1 % 54 to 58 s sooner, but the mean never gets there. Whether onset in a neighbour begins locally is therefore a question a whole-cell threshold cannot settle, so the next step is to run onset kinetics, such as those of Koenig, Zhao and Deng, on a resolved field with the cap and tabs.
+
+<p class="credit">Credit: The Battery Failure Databank is provided by the U.S. Department of Energy's National Renewable Energy Laboratory, operated by Alliance for Sustainable Energy, LLC (DOE/NREL/ALLIANCE); its notice accompanies the rows used, in inputs/databank/.</p>

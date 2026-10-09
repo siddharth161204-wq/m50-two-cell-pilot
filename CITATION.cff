@@ -5,7 +5,8 @@ type: software
 authors:
   - family-names: Satte
     given-names: Siddharth
-    affiliation: Independent researcher
+    affiliation: Independent Researcher
+    orcid: https://orcid.org/0009-0001-3584-1008
 version: v1.0.0
 doi: 10.5281/zenodo.23253738
 date-released: 2026-10-09

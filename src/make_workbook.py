@@ -55,6 +55,8 @@ lines = [
     "Sheets: Lumped (script, explicit Euler 0.01 s); Resolved two strips (42 cases); Resolved one strip (7 cases, median energy, 30 s); Scorecard; Databank rows used; Verification; Exploratory (not pre-registered: two-way coupling, isotropic roll, hot volume).",
     "Resolved max: hottest node of the resolved cell 2. Resolved mean: heat-capacity-weighted mean. Location: the path that heats the hottest node (DECISIONS.md D14).",
     "Columns in blue on 'Resolved two strips' are formulas: time saved and ratio at 183.5 C where both models cross.",
+    "The sheet Databank rows used copies rows of the Battery Failure Databank; the Databank's notice is reproduced in full on the sheet Databank notice and must accompany every copy.",
+    "The Battery Failure Databank is provided by the U.S. Department of Energy's National Renewable Energy Laboratory, operated by Alliance for Sustainable Energy, LLC (DOE/NREL/ALLIANCE); its notice accompanies the rows used, in inputs/databank/.",
 ]
 for i, t in enumerate(lines, 1):
     rd.cell(row=i, column=1, value=t).font = BOLD if i == 1 else ARIAL
@@ -111,6 +113,14 @@ sheet(wb, "Scorecard", ["Prediction", "Statement (predictions.md)", "Result", "M
 
 db = list(csv.DictReader(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "inputs", "databank", "databank_m50_used.csv"))))
 sheet(wb, "Databank rows used", list(db[0].keys()), [[num(v) for v in r.values()] for r in db])
+notice_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "inputs", "databank", "DATABANK_NOTICE.txt")
+paras = [p.replace("\n", " ").strip() for p in open(notice_path).read().split("\n\n") if p.strip()]
+wsn = wb.create_sheet("Databank notice")
+for i, t in enumerate(paras, 1):
+    c = wsn.cell(row=i, column=1, value=t)
+    c.font = ARIAL
+    c.alignment = Alignment(wrap_text=True, vertical="top")
+wsn.column_dimensions["A"].width = 160
 
 N = json.load(open(os.path.join(O, "note_numbers.json")))
 ver = [["V1 radiation only: max deviation of resolved mean from lumped node (% of rise)", N["V1"]["max_rel_dev_percent"]],
