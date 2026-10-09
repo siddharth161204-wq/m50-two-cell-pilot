@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pilot B figure (brief step 5, with a context panel added).
+"""The figure of the note (brief step 5, with a context panel added).
 
 a  Peak temperature of cell 2 against busbar conductance: lumped node, resolved mean and resolved hottest point,
    median and maximum Databank energy, with the two onset bands of Koenig, Zhao and Deng (2025).
@@ -140,5 +140,5 @@ legend = [Line2D([], [], color=BLUE, marker="o", lw=1.6, markersize=4.5, label="
 fig.legend(handles=legend, loc="lower center", ncol=3, fontsize=6.6, frameon=False, bbox_to_anchor=(0.5, -0.25),
            columnspacing=1.6, handlelength=2.0)
 for ext in ("png", "pdf"):
-    fig.savefig(os.path.join(args.out, f"pilot_b_figure.{ext}"), dpi=240, bbox_inches="tight")
-print("wrote", os.path.join(args.out, "pilot_b_figure.png"))
+    fig.savefig(os.path.join(args.out, f"m50_two_cell_figure.{ext}"), dpi=240, bbox_inches="tight")
+print("wrote", os.path.join(args.out, "m50_two_cell_figure.png"))

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: If you use this work, please cite it as below.
+title: "Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot"
+type: software
+authors:
+  - family-names: Satte
+    given-names: Siddharth
+    affiliation: Independent researcher
+version: v1.0.0
+doi: 10.5281/zenodo.23253738
+date-released: 2026-10-09
+repository-code: https://github.com/siddharth161204-wq/m50-two-cell-pilot
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - thermal runaway
+  - thermal runaway propagation
+  - lithium-ion battery
+  - LG M50
+  - lumped thermal model
+  - finite element method
+  - pre-registration
+  - Battery Failure Databank

@@ -1,4 +1,4 @@
-# Pilot B predictions
+# Predictions
 
 Written on 7 October 2026 after the lumped sweep (`results/lumped_results.csv`) and before any coupled run of the resolved cell-2 model. The resolved model had been run only on the checks in `results/verification_pre_refine1.json` and on code-path tests of at most 3 s of simulated time, all with synthetic inputs that carry no information about the 42 cases. This file is committed and pushed to a public repository before the resolved sweep; the commit hash is recorded in the README.
 

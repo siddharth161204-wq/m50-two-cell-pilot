@@ -1,4 +1,4 @@
-# Pilot B decisions
+# Decisions
 
 Every analysis choice that is not fixed by the brief is recorded here in full sentences, with its reason, before the runs it affects.
 

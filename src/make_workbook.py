@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Pilot B results workbook for working from the numbers (one sheet per table, a read-me sheet first).
+"""Results workbook for working from the numbers (one sheet per table, a read-me sheet first).
 
-Usage: python3 make_workbook.py --out ../results   -> results/pilot_b_results.xlsx
+Usage: python3 make_workbook.py --out ../results   -> results/m50_two_cell_results.xlsx
 """
 import argparse, csv, json, os
 from openpyxl import Workbook
@@ -47,7 +47,7 @@ def sheet(wb, title, header, rows, widths=None):
 wb = Workbook()
 rd = wb.active; rd.title = "Read me"
 lines = [
-    "Pilot B: two LG M50 cells, resolved against lumped neighbour. Repository github.com/siddharth161204-wq/m50-two-cell-pilot",
+    "Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot. Repository github.com/siddharth161204-wq/m50-two-cell-pilot",
     "Predictions commit c57ccb87e699d3dbb1230122cdba3785293627e0, public 2026-10-07 06:42:35 UTC, before any coupled resolved run.",
     "Temperatures in degrees Celsius, times in seconds, conductances in W/K. Blank or Never: the level is not reached within 900 s.",
     f"Self-heating band (Koenig, Zhao, Deng 2025, Fig. 7): {LP.T_INITIAL_BAND[0]-273.15:.1f} / {LP.T_INITIAL_MEAN-273.15:.1f} / {LP.T_INITIAL_BAND[1]-273.15:.1f} C. Internal-short band: {LP.T_ONSET_BAND[0]-273.15:.1f} / {LP.T_ONSET_MEAN-273.15:.1f} / {LP.T_ONSET_BAND[1]-273.15:.1f} C.",
@@ -179,5 +179,5 @@ for i, (key, v) in enumerate(hv.items(), 1):
         c = ws.cell(row=r0 + i, column=j, value=x); c.font = ARIAL
         if isinstance(x, float) and j >= 5:
             c.number_format = "0.000"
-wb.save(os.path.join(O, "pilot_b_results.xlsx"))
-print("wrote", os.path.join(O, "pilot_b_results.xlsx"))
+wb.save(os.path.join(O, "m50_two_cell_results.xlsx"))
+print("wrote", os.path.join(O, "m50_two_cell_results.xlsx"))

@@ -1,12 +1,16 @@
-# Pilot B: a two-cell LG M50 string, resolved against lumped neighbour
+# Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot
 
 A pilot study. Cell 1 is in thermal runaway; cell 2 is its neighbour, joined to it by busbar strips, a 2 mm air gap and radiation between the cans. Cell 2 is modelled twice with identical inputs, once as a single temperature (lumped) and once as a three-dimensional temperature field (resolved), to measure how much the lumped model mistimes and misplaces the onset of self-heating and internal short circuit in the neighbour. Conduction and radiation only: the ejecta and flame paths are excluded. One geometry, published inputs.
 
-The one-page note is `note/pilot_b_note.pdf` (source `note/pilot_b_note.md`).
+Siddharth Satte, Independent researcher, Pune, India.
+
+Archived on Zenodo as version v1.0.0: https://doi.org/10.5281/zenodo.23253738. Cite as: Satte, S. (2026). Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23253738
+
+The one-page note is `note/m50_two_cell_note.pdf` (source `note/m50_two_cell_note.md`).
 
 ## Status and order of work
 
-- Predictions: `predictions.md`, commit `c57ccb87e699d3dbb1230122cdba3785293627e0`, pushed to this public repository at 2026-10-07 06:42:35 UTC (the repository's `pushed_at` time), after the lumped sweep and before any coupled run of the resolved model. The file has not changed since that commit.
+- Predictions: `predictions.md`, commit `c57ccb87e699d3dbb1230122cdba3785293627e0`, pushed to this public repository at 2026-10-07 06:42:35 UTC (the repository's `pushed_at` time), after the lumped sweep and before any coupled run of the resolved model. Its text has not changed since that commit; on 9 October 2026 its title line was shortened to drop an internal project label, and `git diff c57ccb8 -- predictions.md` shows that this is the only change.
 - Coupled resolved runs began after the push: V1 at 06:44 UTC, V2 and V3 by 07:11 UTC, the 42-case sweep from 07:15 UTC, the 7 one-strip cases from 09:38 UTC.
 - Everything after the predictions commit is in later commits, including the decisions added after the predictions were public (DECISIONS.md D21 to D27) and a later rewording of D1 and D2, which D2 records; no band edge changed.
 
@@ -62,9 +66,9 @@ Two of the 42 cases were run twice by parallel workers and gave identical rows i
 - `src/hot_volume.py`, `src/sensitivity.py`: the exploratory runs.
 - `src/score_predictions.py`, `src/note_numbers.py`, `src/make_figure.py`, `src/make_workbook.py`: scoring, the numbers quoted in the note, the figure and the results workbook.
 - `inputs/`: the band edges measured from Koenig, Zhao and Deng (2025) Fig. 7, the ORegan2022 property calculation, and the Battery Failure Databank rows for the LG 21700-M50 with their extraction script.
-- `results/`: `lumped_results.csv`; `resolved_results_two.csv` (42 cases) and `resolved_results_one.csv` (7 cases); `resolved_summary.csv`; `prediction_scorecard.json`; `pilot_b_figure.png` and `.pdf`; `pilot_b_results.xlsx` (all tables in one workbook); the verification and exploratory records; `t1_series/` (cell 1 histories, the boundary input of the resolved model); `resolved_series/` (time series of every resolved run); the run logs.
+- `results/`: `lumped_results.csv`; `resolved_results_two.csv` (42 cases) and `resolved_results_one.csv` (7 cases); `resolved_summary.csv`; `prediction_scorecard.json`; `m50_two_cell_figure.png` and `.pdf`; `m50_two_cell_results.xlsx` (all tables in one workbook); the verification and exploratory records; `t1_series/` (cell 1 histories, the boundary input of the resolved model); `resolved_series/` (time series of every resolved run); the run logs.
 - `note/`: the note, its Markdown source, stylesheet and render script (pandoc and headless Chromium).
-- `provenance/`: the lumped script as received, before the changes listed in its header.
+- `provenance/`: the lumped script as received, before the changes listed in the header of `src/lumped_two_cell.py`; the only edit to it is the removal of an internal project label from its first docstring line on 9 October 2026.
 
 The study design (called the brief in DECISIONS.md) fixed the geometry, the inputs to fetch, the sweep and the verification steps; DECISIONS.md records every choice it did not fix and every place this work departs from it.
 
@@ -108,4 +112,4 @@ Several sweep workers can run at once with different `--tag` values; each skips 
 
 ## Licence
 
-Code: MIT (see LICENSE). The Databank rows remain under the Databank's own notice (`inputs/databank/DATABANK_NOTICE.txt`).
+Code: MIT (see LICENSE). The note, the figure and the results: CC BY 4.0. The Databank rows remain under the Databank's own notice (`inputs/databank/DATABANK_NOTICE.txt`), which accompanies every copy.

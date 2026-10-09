@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pilot B, reference model: two LG M50 cells, cell 1 in thermal runaway, cell 2 the neighbour.
+Reference model: two LG M50 cells, cell 1 in thermal runaway, cell 2 the neighbour.
 Both cells are LUMPED nodes here. This is the baseline that the RESOLVED cell-2 model
 (your 3D conduction solver, anisotropic jelly roll + can, busbar entering at the terminal,
 gap-facing surface receiving conduction + radiation) must be compared against with

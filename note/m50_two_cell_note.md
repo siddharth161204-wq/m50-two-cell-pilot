@@ -1,6 +1,6 @@
 # Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot
 
-Siddharth Satte, COEP Technological University, Pune, 7 October 2026. [github.com/siddharth161204-wq/m50-two-cell-pilot](https://github.com/siddharth161204-wq/m50-two-cell-pilot){.nobr}, predictions commit c57ccb8, public at 06:42 UTC, before any coupled resolved run.
+Siddharth Satte, Independent researcher, Pune, India, 7 October 2026. [doi.org/10.5281/zenodo.23253738](https://doi.org/10.5281/zenodo.23253738){.nobr}; [github.com/siddharth161204-wq/m50-two-cell-pilot](https://github.com/siddharth161204-wq/m50-two-cell-pilot){.nobr}, predictions commit c57ccb8, public at 06:42 UTC, before any coupled resolved run.
 
 <div class="headline">
 
@@ -9,7 +9,7 @@ Siddharth Satte, COEP Technological University, Pune, 7 October 2026. [github.co
 
 </div>
 
-![](../results/pilot_b_figure.png)
+![](../results/m50_two_cell_figure.png)
 
 Figure 1. Registered runs, two strips, 30 s release. (a) Peak temperatures against the two-sigma bands of T_in and T_on and (b) first time each model reaches 183.5 C, at the median (filled) and maximum (hollow) energy. (c) Hottest point minus mean at the median energy, at its peak (hollow) and on reaching 183.5 C (filled); triangles are heated mainly by a strip, circles across the gap.
 
