@@ -1,0 +1,19 @@
+{
+  "input": "synthetic: T1 = 150 C from t = 0, g_pos = g_neg = 0.25 W/K, 5 s at 0.1 s, refine 1",
+  "field_identical_with_and_without_option": true,
+  "series_identical_with_and_without_option": true,
+  "rows_recorded": 51,
+  "columns": [
+    "t_s",
+    "in_bus_J",
+    "in_gap_J",
+    "in_rad_J",
+    "out_conv_J",
+    "out_rad_J",
+    "in_vol_J",
+    "stored_J"
+  ],
+  "max_abs_residual_J": 7.932499102025758e-11,
+  "max_abs_residual_over_gross_flow": 3.443095384994861e-13,
+  "last_row_equals_end_of_run_account": true
+}

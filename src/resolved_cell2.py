@@ -184,9 +184,11 @@ class Cell2Model:
 
     def run(self, t1_of_t, t_end=900.0, dt=0.1, g_pos=0.0, g_neg=0.0, gap_on=True, rad_gain_on=True,
             conv_on=True, rad_loss_on=True, q_vol=None, q_shape="capacity", levels=None, record_every=0.5, T_init=None,
-            volume_levels=None, cell1=None):
+            volume_levels=None, cell1=None, energy_series=False):
         """Integrate cell 2. t1_of_t(t) returns T1 in kelvin. q_vol(t) is an optional uniform internal source in W
-        (full cell), used only by the verification runs. Returns a dict of crossings, peaks and a time series."""
+        (full cell), used only by the verification runs. Returns a dict of crossings, peaks and a time series.
+        energy_series=True (addendum v1.1, DECISIONS.md D28) also returns, after every step, the cumulative full-cell
+        energies of the existing account and the stored energy; it only reads the account and changes nothing else."""
         Ta = LP.T_AMB
         levels = levels if levels is not None else LP.LEVELS
         lu = self.system(dt, g_pos, g_neg, gap_on, conv_on)
@@ -222,6 +224,8 @@ class Cell2Model:
         vol_total = self.w_vol.sum()
         vol_max = {lv: 0.0 for lv in (volume_levels or [])}
         vol_series = []
+        e_keys = ("in_bus", "in_gap", "in_rad", "out_conv", "out_rad", "in_vol")
+        e_series = [(0.0,) + (0.0,) * (len(e_keys) + 1)] if energy_series else None
         for n in range(n_steps):
             t_new = (n + 1) * dt
             if cell1 is None:
@@ -252,6 +256,8 @@ class Cell2Model:
             energy["out_rad"] += dt * float(np.sum(rad_loss))
             energy["in_vol"] += dt * qv
             T = Tn
+            if energy_series:          # D28: read-only record of the account, full cell (half model doubled)
+                e_series.append((t_new,) + tuple(2 * energy[k] for k in e_keys) + (2 * float(self.C @ T - E0),))
             imax = int(np.argmax(T))
             Tmax = T[imax]
             Tmean = (self.C @ T) / Ctot
@@ -284,7 +290,9 @@ class Cell2Model:
         net = energy["in_bus"] + energy["in_gap"] + energy["in_rad"] + energy["in_vol"] - energy["out_conv"] - energy["out_rad"]
         return {"vol_fraction_max": vol_max, "vol_series": np.array(vol_series) if vol_series else None,
                 "cross_max": cross_max, "cross_mean": cross_mean, "at_cross": extra, "peak": peak,
-                "series": np.array(series), "energy": energy, "stored_J": 2 * stored, "net_in_J": net, "T_final": T}
+                "series": np.array(series), "energy": energy, "stored_J": 2 * stored, "net_in_J": net, "T_final": T,
+                "energy_series": np.array(e_series) if energy_series else None,
+                "energy_series_columns": ("t_s",) + tuple(f"{k}_J" for k in e_keys) + ("stored_J",)}
 
 
 def lumped_one_way(t1_of_t, t_end=900.0, dt=0.1, g_bus=0.0, gap_on=True, rad_gain_on=True, conv_on=True,
