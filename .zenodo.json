@@ -1,0 +1,73 @@
+{
+  "title": "Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot",
+  "upload_type": "software",
+  "version": "v1.1.0",
+  "publication_date": "2026-10-12",
+  "creators": [
+    {
+      "name": "Satte, Siddharth",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0001-3584-1008"
+    }
+  ],
+  "description": "<p>A pre-registered pilot study. Two LG 21700-M50 cells: cell 1 is in thermal runaway and cell 2 is its neighbour, joined to it by two busbar strips, a 2 mm air gap and radiation between the cans. Cell 2 is solved twice with identical inputs, as a single temperature (lumped) and as a three-dimensional temperature field (resolved), to measure how much a lumped neighbour mistimes and misplaces the onset of thermal runaway. The predictions were committed and made public before any coupled run of the resolved model (GitHub commit c57ccb8, 7 October 2026, 06:42 UTC).</p><p>Method. Cell 1 is a lumped node that releases its Battery Failure Databank cell-body energy, the minimum, median or maximum of 17 fully charged tests of the bottom-vent LG 21700-M50 (8.75, 21.5 or 33.2 kJ), as a triangular pulse over 10 or 30 s. The two busbar strips total 5 to 500 mW/K, the air gap conducts 17 mW/K, radiation uses a view factor of 0.16, and both cells lose heat to a 25 C room. The resolved cell 2 is a scikit-fem model with an anisotropic jelly roll (1.3 W/mK across and 25 W/mK along the layers), a 0.25 mm steel can and the strips on an 8 mm cap disc and a rim annulus. The onset levels are the main-cluster means of Koenig, Zhao and Deng (2025) with two-sigma bands read from their Fig. 7: T_in = 183.5 C (169.0 to 198.0 C) for self-heating and T_on = 278.9 C (255.7 to 302.1 C) for the internal short. Conduction and radiation only: ejecta, flame and venting are excluded.</p><p>Results. With copper busbars (500 mW/K in all) and 33.2 kJ, the hottest point of the resolved neighbour first reaches 183.5 C 64 s before the lumped node: 5.7 s against 69.6 s for a 10 s release, 15.5 s against 79.2 s for 30 s. The hottest 1 % of the cell follows at 11.6 s and 25.0 s, but the resolved mean never reaches 183.5 C, so the lumped node is a minute late for the hottest point and 44 K too hot for the mean (30 K with two-way coupling). The smallest busbar conductance at which only the resolved model reaches 183.5 C is 200 mW/K (100 mW/K for 169.0 C); in each of those cases at most 0.52 % of the cell exceeds 183.5 C. Of the five pre-registered predictions, four held and one failed: the hottest point moves from the gap-facing surface to the terminal end between 5 and 10 mW/K, one step lower than predicted.</p><p>Checks. Heated by radiation alone, the resolved mean stays within 0.98 % of the lumped rise; energy closes to 2 parts in 10^11 in all 49 sweep runs; halving the time step or every mesh spacing moves the headline crossing times by at most 0.09 s; a rerun of the headline case with the final code reproduces it exactly.</p><p>Limits. One geometry, with the strips on the jelly-roll ends (cap assembly, tabs and headspace not resolved) and constant properties; a Databank energy shaped as a triangle rather than a measured heat-rate curve; whole-cell ARC onset metrics of a different cell, applied to a point, to the hottest 1 % and to the mean. Coupling is one-way in the registered runs; rerun two-way, the hottest point reaches 183.5 C at most 0.3 s earlier and the resolved mean peaks 6 to 14 K higher.</p><p>Addendum (v1.1). Yao and Battiato's adaptive hybrid scheme for thermal runaway in a pack (arXiv:2504.10119) couples cells only through a packing continuum and holds its error below the upscaling error of their test cases, 0.05, with temperature scaled by 240 K. Computed from the archived runs after the addendum's predictions were public (GitHub commit 7b866bf, 12 October 2026, 11:01 UTC): the busbars carry 86 to 90 % of the resolved neighbour's heat intake over 900 s at 500 mW/K and still 58 to 66 % at 50 mW/K, and 93 to 94 % up to the moment its hottest node reaches 183.5 C at 500 mW/K; in their measure the lumped node's error against the resolved mean peaks at 0.24 at 33.2 kJ and 500 mW/K but passes 0.05 only after the hottest node has reached 183.5 C, while at 100 mW/K it stays below 0.05 as the error at the hottest node reaches 0.53; for a two-by-four module of these cells in air (epsilon = 0.25), their packing Biot number is 46 and their conductivity ratio 43, both violating their applicability conditions before any cell burns, and a busbar of 50 to 500 mW/K is a coupling Biot number of 130 to 1,300 carried by a discrete path that their packing continuum does not contain. Of the addendum's four predictions, one held, one held in part and two failed. The eight cases rerun for it reproduce the archived results exactly.</p><p>Files. The note (PDF: one page for v1.0.0 and a second page for the addendum) and the GitHub archive of release v1.1.0 (zip): code, inputs, all results, the decision log (DECISIONS.md) and the pre-registered predictions (predictions.md and predictions_addendum.md). Repository: https://github.com/siddharth161204-wq/m50-two-cell-pilot. Code is under the MIT License; the note, figures and results are under CC BY 4.0; the Battery Failure Databank rows in inputs/databank/ remain under the Databank's own notice, which accompanies them.</p><p>Credit. The Battery Failure Databank is provided by the U.S. Department of Energy's National Renewable Energy Laboratory, operated by Alliance for Sustainable Energy, LLC (DOE/NREL/ALLIANCE); its notice accompanies the rows used, in inputs/databank/.</p>",
+  "license": "MIT",
+  "language": "eng",
+  "keywords": [
+    "thermal runaway",
+    "thermal runaway propagation",
+    "lithium-ion battery",
+    "LG M50",
+    "21700 cylindrical cell",
+    "lumped thermal model",
+    "finite element method",
+    "busbar conduction",
+    "Battery Failure Databank",
+    "pre-registration",
+    "battery safety",
+    "multiscale modelling"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://www.nlr.gov/transportation/battery-failure",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.1016/j.jpowsour.2024.234106",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1016/j.cej.2025.160402",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1016/j.electacta.2022.140700",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "arXiv:2504.10119",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    }
+  ],
+  "references": [
+    "Koenig, B.C., Zhao, P., Deng, S. (2025). Comprehensive thermal-kinetic uncertainty quantification of lithium-ion battery thermal runaway via Bayesian chemical reaction neural networks. Chemical Engineering Journal 507, 160402. https://doi.org/10.1016/j.cej.2025.160402",
+    "Finegan, D.P., et al. (2024). The battery failure databank: Insights from an open-access database of thermal runaway behaviors of Li-ion cells and a resource for benchmarking risks. Journal of Power Sources 597, 234106. https://doi.org/10.1016/j.jpowsour.2024.234106",
+    "National Renewable Energy Laboratory (2024). Battery Failure Databank, revision 2 (February 2024). https://www.nlr.gov/transportation/battery-failure",
+    "O'Regan, K., Brosa Planella, F., Widanage, W.D., Kendrick, E. (2022). Thermal-electrochemical parameters of a high energy lithium-ion cylindrical battery. Electrochimica Acta 425, 140700. https://doi.org/10.1016/j.electacta.2022.140700",
+    "Sulzer, V., Marquis, S.G., Timms, R., Robinson, M., Chapman, S.J. (2021). Python Battery Mathematical Modelling (PyBaMM). Journal of Open Research Software 9(1), 14. https://doi.org/10.5334/jors.309",
+    "Gustafsson, T., McBain, G.D. (2020). scikit-fem: A Python package for finite element assembly. Journal of Open Source Software 5(52), 2369. https://doi.org/10.21105/joss.02369",
+    "Incropera, F.P., DeWitt, D.P., Bergman, T.L., Lavine, A.S. Fundamentals of Heat and Mass Transfer. Wiley. Two-dimensional view factor of parallel cylinders of equal radius.",
+    "Yao, Y.N., Battiato, I. (2025). Non-intrusive auto-detecting and adaptive hybrid scheme for multiscale heat transfer: thermal runaway in a battery pack. arXiv:2504.10119v1. https://arxiv.org/abs/2504.10119"
+  ],
+  "notes": "Version v1.1.0 adds an addendum to v1.0.0 (doi:10.5281/zenodo.23253738) without changing it. All versions: doi:10.5281/zenodo.23253737."
+}

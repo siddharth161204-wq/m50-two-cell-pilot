@@ -4,9 +4,9 @@ A pilot study. Cell 1 is in thermal runaway; cell 2 is its neighbour, joined to 
 
 Siddharth Satte, Independent researcher, Pune, India.
 
-Archived on Zenodo as version v1.0.0: https://doi.org/10.5281/zenodo.23253738. Cite as: Satte, S. (2026). Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23253738
+Archived on Zenodo: version v1.1.0, which adds the addendum below, at https://doi.org/10.5281/zenodo.23315924; version v1.0.0 at https://doi.org/10.5281/zenodo.23253738; every version at https://doi.org/10.5281/zenodo.23253737. Cite as: Satte, S. (2026). Where and when a neighbour cell first reaches thermal-runaway onset temperatures: resolved against lumped, a pre-registered two-cell LG M50 pilot (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.23315924
 
-The one-page note is `note/m50_two_cell_note.pdf` (source `note/m50_two_cell_note.md`).
+The note is `note/m50_two_cell_note.pdf` (source `note/m50_two_cell_note.md`): one page for v1.0.0, and a second page for the addendum of v1.1.
 
 ## Status and order of work
 
@@ -54,6 +54,72 @@ Exploratory runs, not pre-registered (DECISIONS.md D23, D25, D26; `results/hot_v
 | Rerun of the 33.2 kJ, 30 s, 500 mW/K case with the final code (`results/rerun_check.json`) | Identical to the registered row and time series |
 
 Two of the 42 cases were run twice by parallel workers and gave identical rows in every field but the run time; `src/merge_results.py` keeps one copy of each case.
+
+## Addendum (v1.1): how the neighbour's heat arrives, and the lumped error in the terms of an adaptive hybrid scheme
+
+Y.N. Yao and I. Battiato (arXiv:2504.10119v1, 2025) build an adaptive hybrid scheme for thermal runaway in a battery pack: homogenised equations wherever their applicability conditions hold (their Eq. 13), fine-scale equations where they break down, and an error held below the upscaling error of their test cases, 0.05. Their fine-scale pack couples cells only through the packing material, treats each cell as an isotropic disk with the packing's conductivity, and has no busbar and no radiation. The addendum asks four things of the archived runs of v1.0.0: how much of the neighbour's heat intake arrives by the busbar; how large the lumped neighbour's error is in their measure; what their dimensionless numbers are for a module of these cells in air; and the internal Biot number of a strip patch. Nothing in v1.0.0 changed: the addendum adds files, these sections, decisions D28 to D32 and a second page of the note.
+
+- Predictions: `predictions_addendum.md`, commit `7b866bffd72b07b71521994ea5903fc1cb3c629d`, pushed at 2026-10-12 11:01:29 UTC (the repository's `pushed_at` time), before any of the four quantities was computed. The scoring rules are in that file and the definitions in DECISIONS.md D28 to D32. The results are in commit `4d63e97`.
+- Reruns: the archive holds each run's energy account over 900 s but no time series of the heat through each path, so the eight headline cases (33.2 kJ; 10 and 30 s; 500, 200, 100 and 50 mW/K) were rerun with the solver's own account recorded after every step (D28, an option that is off by default and changes nothing in the solve). Every field of the eight rows and every archived sample of their series are reproduced exactly (`results/addendum_rerun_check.json`), and the stored heat equals the intake minus the room losses at every step to within 9e-13 of the gross flow.
+
+Every number below is computed by `src/addendum.py` (`results/addendum_numbers.json`); the figure is `results/addendum_figure.png` (`src/addendum_figure.py`).
+
+1. Intake (`results/addendum_intake.csv`). The busbar's share of the heat the resolved neighbour takes in through the strips, the air gap and radiation from cell 1, as the model's energy account books them (D29):
+
+| Busbar conductance (mW/K) | 5 | 10 | 20 | 50 | 100 | 200 | 500 |
+|---|---|---|---|---|---|---|---|
+| Two strips, over 900 s (range over the six cases) | 14 to 18 % | 25 to 31 % | 39 to 46 % | 58 to 66 % | 71 to 77 % | 79 to 85 % | 86 to 90 % |
+| One strip, 21.5 kJ, 30 s, over 900 s | 16 % | 27 % | 42 % | 61 % | 73 % | 81 % | 86 % |
+| Two strips, 33.2 kJ, up to the hottest node's first 183.5 C (10 s; 30 s) | | | | | | 84.7 %; 85.5 % | 93.7 %; 93.4 % |
+
+The air gap and radiation carry the rest. Over 900 s cell 2 returns 45 to 65 % of its intake to the room, so the three intakes do not add up to its stored heat, as the study design supposed; the check applied is the complete balance (D29). Up to the 183.5 C crossing the room takes under 1 % of the intake.
+
+2. Error measure (`results/addendum_error.csv`, series in `results/addendum_error_series.npz`). The lumped node's error |T - T_lumped| / 240 K, with 240 K the temperature scale of their Table 3 and Eq. 6, against their test cases' 0.05, which is their yardstick and not a property of this cell or of any module (D30):
+
+| 33.2 kJ, 10 s; 30 s | Against the resolved mean: peak, first above 0.05 | Against the resolved hottest node: peak, first above 0.05 | Hottest node first at 183.5 C |
+|---|---|---|---|
+| 500 mW/K | 0.242, 14.0 s; 0.243, 23.8 s | 1.24, 1.8 s; 1.12, 4.8 s | 5.70 s; 15.51 s |
+| 200 mW/K | 0.100, 41.5 s; 0.101, 51.4 s | 0.83, 2.5 s; 0.81, 6.3 s | 8.17 s; 20.50 s |
+| 100 mW/K | 0.043, never; 0.044, never | 0.53, 3.2 s; 0.52, 8.0 s | never |
+| 50 mW/K | 0.017, never; 0.018, never | 0.30, 4.1 s; 0.30, 10.4 s | never |
+
+Over all 42 two-strip runs, the error against the mean passes 0.05 only at 200 and 500 mW/K with the two larger energies and at 500 mW/K with the smallest; the error at the hottest node passes it in 35 of the 42.
+
+3. Their numbers for a module (`results/addendum_module.json`). A two-by-four module of these cells at 23.1 mm pitch in air, each cell in a square of air one pitch wide, the pack four pitches long, so epsilon = 0.25 (their Eq. 3), evaluated with the two-cell study's own values (D31). A condition counts as violated when the number is not of the required integer power of epsilon (`predictions_addendum.md`):
+
+| Number (their Eq. 9) | Value | Their condition (Eq. 13) | Result |
+|---|---|---|---|
+| Packing Biot number Bi_p = U_pc L / K_p, with U_pc = 15 W/m2K, the gap's conductance per facing area, and K_p = 0.03 W/mK | 46.2 | of order 1 | violated by a factor 46 |
+| Conductivity ratio K_c / K_p, with K_c = 1.3 W/mK across the layers | 43.3 | of order 1 | violated by a factor 43 |
+| Cell Biot number Bi_p / (K_c / K_p) | 1.07 | of order 1 | met |
+| Burn number R, 33.2 kJ over 30 s per cell volume (4.5e7 W/m3), temperature scale 240 K | 5.4e4 | of order 1/epsilon = 4 | violated by a factor 1.3e4 |
+| Heat-capacity ratio | not evaluated: v1.0.0 records no heat capacity for the air | of order 1 | |
+| Q, the cooling-pipe flux | absent: the module has no cooling pipe | of order 1 | |
+
+With the conductivity along the layers (25 W/mK) the ratio is 833 and the cell Biot number 0.055, both violated. The packing Biot number is the pack length over the gap, 92.4 mm over 2 mm, whatever the air's conductivity. Put in their units the same way, U_bus = G_bus / A_face, a busbar of 50 to 500 mW/K is a coupling Biot number of 133 to 1,326, 2.9 to 29 times the gap's; their pack has no such term, because it couples cells only through the packing continuum.
+
+4. Internal Biot number of a strip patch (`results/addendum_biot.csv`), Bi = (G_strip / A_patch) R / k_across with R = 10.55 mm and k_across = 1.3 W/mK (D32): with two strips it passes 1 at 12.4 mW/K on the 8 mm cap disc and at 42.6 mW/K on the bottom annulus; with one strip on the annulus, at 21.3 mW/K. At 500 mW/K it is 40 on the disc and 12 on the annulus.
+
+The four predictions of the addendum:
+
+| Prediction | Statement (short form) | Result | Measured |
+|---|---|---|---|
+| P1 | At 500 mW/K the busbar carries more than 80 % of the intake over 900 s (central 90 %); at 50 mW/K less than 50 % (central 40 %) | Failed | 86 to 90 % at 500 mW/K, but 58 to 66 % at 50 mW/K |
+| P2 | At 33.2 kJ and 500 mW/K the error against the resolved mean exceeds 0.05 (central peak 0.08) and first exceeds it before the hottest node reaches 183.5 C | Failed | Peaks 0.242 and 0.243, first above 0.05 at 14.0 and 23.8 s, after 5.70 and 15.51 s |
+| P3 | At 100 mW/K the error against the resolved mean never exceeds 0.05 (central peak 0.03), while against the hottest node it does | Held | Peaks 0.043 and 0.044; at the hottest node 0.53 and 0.52 |
+| P4 | For the module in air the packing Biot number is above 10 (central 40), so the first condition violated is the packing one, before any cell burns | Held in part | 46.2; the conductivity ratio, 43, is violated with it before any cell burns |
+
+P3 names no energy and was scored, as `predictions_addendum.md` fixed before computing, on the two 33.2 kJ cases; at the other two energies the error against the mean peaks at 0.014 and 0.031 and at the hottest node at 0.14 to 0.35, so the result would be the same. The scorecard is `results/addendum_scorecard.json`.
+
+Files of the addendum: `predictions_addendum.md`; `src/check_flux_accounting.py`, `src/addendum_flux_rerun.py`, `src/addendum.py`, `src/addendum_figure.py`; `results/addendum_*.csv`, `.json` and `.npz`, `results/addendum_figure.png` and `.pdf`, and `results/addendum_rerun/` (the eight reruns, with the per-step energy records). From `src/`, with `MKL_NUM_THREADS=1`:
+
+    python3 check_flux_accounting.py --out ../results
+    python3 addendum_flux_rerun.py --out ../results --rerun ../results/addendum_rerun --g 0.5 0.2 --tag A
+    python3 addendum_flux_rerun.py --out ../results --rerun ../results/addendum_rerun --g 0.1 0.05 --tag B
+    python3 addendum_flux_rerun.py --out ../results --rerun ../results/addendum_rerun --compare
+    python3 addendum.py --out ../results
+    python3 addendum_figure.py --out ../results
+    cd ../note && ./render_note.sh
 
 ## Contents
 
@@ -109,6 +175,7 @@ Several sweep workers can run at once with different `--tag` values; each skips 
 - B.C. Koenig, P. Zhao, S. Deng, Comprehensive thermal-kinetic uncertainty quantification of lithium-ion battery thermal runaway via Bayesian chemical reaction neural networks, Chemical Engineering Journal 507 (2025) 160402.
 - K. O'Regan, F. Brosa Planella, W.D. Widanage, E. Kendrick, Thermal-electrochemical parameters of a high energy lithium-ion cylindrical battery, Electrochimica Acta 425 (2022) 140700, through the PyBaMM parameter set ORegan2022.
 - View factor of parallel equal cylinders: F.P. Incropera et al., Fundamentals of Heat and Mass Transfer, two-dimensional view factor table.
+- Y.N. Yao, I. Battiato, Non-intrusive auto-detecting and adaptive hybrid scheme for multiscale heat transfer: thermal runaway in a battery pack, arXiv:2504.10119v1 (2025): the dimensionless numbers, applicability conditions, temperature scale and error yardstick of the addendum.
 
 ## Licence
 

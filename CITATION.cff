@@ -7,9 +7,19 @@ authors:
     given-names: Siddharth
     affiliation: Independent Researcher
     orcid: https://orcid.org/0009-0001-3584-1008
-version: v1.0.0
-doi: 10.5281/zenodo.23253738
-date-released: 2026-10-09
+version: v1.1.0
+doi: 10.5281/zenodo.23315924
+date-released: 2026-10-12
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23315924
+    description: Version v1.1.0 (with the addendum)
+  - type: doi
+    value: 10.5281/zenodo.23253738
+    description: Version v1.0.0
+  - type: doi
+    value: 10.5281/zenodo.23253737
+    description: All versions
 repository-code: https://github.com/siddharth161204-wq/m50-two-cell-pilot
 license:
   - MIT
@@ -22,4 +32,6 @@ keywords:
   - lumped thermal model
   - finite element method
   - pre-registration
+  - multiscale modelling
+  - busbar
   - Battery Failure Databank

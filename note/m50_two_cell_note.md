@@ -43,3 +43,20 @@ Figure 1. Registered runs, two strips, 30 s release. (a) Peak temperatures again
 Whether a resolved neighbour reaches onset before or after a lumped one depends on how much of it must be hot: where the lumped node gets there at all (33.2 kJ, 500 mW/K), the hottest point is 64 s sooner and the hottest 1 % 54 to 58 s sooner, but the mean never gets there. Whether onset in a neighbour begins locally is therefore a question a whole-cell threshold cannot settle, so the next step is to run onset kinetics, such as those of Koenig, Zhao and Deng, on a resolved field with the cap and tabs.
 
 <p class="credit">Credit: The Battery Failure Databank is provided by the U.S. Department of Energy's National Renewable Energy Laboratory, operated by Alliance for Sustainable Energy, LLC (DOE/NREL/ALLIANCE); its notice accompanies the rows used, in inputs/databank/.</p>
+
+<div class="addendum">
+
+## Addendum (v1.1)
+
+1. Yao and Battiato's adaptive hybrid for thermal runaway in a pack (arXiv:2504.10119) couples cells only through a packing continuum, scales temperature by 240 K (their Table 3 and Eq. 6) and keeps its error below the upscaling error of their test cases, 0.05. The results below come from the archived runs, computed after their predictions were public (commit 7b866bf, 12 October 2026, 11:01 UTC); nothing above this heading changed. Version v1.1.0: [doi.org/10.5281/zenodo.23315924](https://doi.org/10.5281/zenodo.23315924){.nobr}.
+2. Busbars carry 86 to 90 % of the resolved neighbour's heat intake over 900 s at 500 mW/K and still 58 to 66 % at 50 mW/K (two strips, every energy and duration); up to the moment its hottest node first reaches 183.5 C they carry 93.7 and 93.4 % at 500 mW/K and 84.7 and 85.5 % at 200 mW/K (33.2 kJ, 10 and 30 s).
+3. In their measure the lumped node's error against the resolved mean peaks at 0.24 at 33.2 kJ and 500 mW/K, but passes 0.05 only at 14.0 and 23.8 s, after the hottest node has reached 183.5 C (5.7 and 15.5 s); at 100 mW/K it stays below 0.05 (peaks 0.043 and 0.044), while at the hottest node, where chemistry starts, the error reaches 0.53 and 0.52.
+4. For a two-by-four module of these cells in air at 23.1 mm pitch (ε = 0.25), their packing Biot number is 46, the pack length over the 2 mm gap, and their conductivity ratio 43 (across the layers): both violate their Eq. 13 by those factors before any cell burns, and the burn number, 5.4 × 10^4^ against 1/ε = 4, violates it by 1.3 × 10^4^ once one does.
+5. In their units a busbar of 50 to 500 mW/K is a coupling Biot number of 130 to 1,300, 3 to 29 times the gap's, carried by a discrete path that their packing continuum does not contain; the internal Biot number of a strip patch, its coefficient times the cell radius over 1.3 W/mK, passes 1 at 12 mW/K on the cap disc and 43 mW/K on the bottom annulus.
+6. Scorecard: P1 failed (over 80 % at 500 mW/K as predicted, but 58 to 66 % at 50 mW/K against a predicted under 50 %); P2 failed (peak 0.24 against a central 0.08, but first above 0.05 only after the hottest node's 183.5 C); P3 held (0.043 and 0.044 against a central 0.03); P4 held in part (46 against a central 40, but the conductivity ratio is violated too).
+
+![](../results/addendum_figure.png)
+
+Figure 2. Addendum, registered runs. (a) Busbar share of the resolved neighbour's heat intake over 900 s at 33.2 kJ and 30 s (band: all six two-strip cases at each conductance), up to its hottest node's first 183.5 C (triangles: filled 30 s, hollow 10 s), and with one strip at the negative end (circles). (b, c) The lumped node's error in Yao and Battiato's measure against the resolved mean and against the resolved hottest node, 33.2 kJ, 50 to 500 mW/K (light to dark), 30 s release (solid) and 10 s (dashed), with their test cases' 0.05; triangles mark the hottest node's first 183.5 C.
+
+</div>
