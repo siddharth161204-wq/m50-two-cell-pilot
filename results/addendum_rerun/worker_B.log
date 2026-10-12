@@ -1,0 +1,5 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+11:09:14 two_E33223_tau10_G0.1: hottest node 183.5 C at none s, residual 2.97e-12, 432 s
+11:16:22 two_E33223_tau30_G0.1: hottest node 183.5 C at none s, residual 2.93e-12, 428 s
+11:23:24 two_E33223_tau10_G0.05: hottest node 183.5 C at none s, residual 3.17e-12, 422 s
+11:30:26 two_E33223_tau30_G0.05: hottest node 183.5 C at none s, residual 3.13e-12, 422 s

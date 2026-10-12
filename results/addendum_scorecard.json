@@ -1,0 +1,128 @@
+{
+  "predictions_commit": "7b866bffd72b07b71521994ea5903fc1cb3c629d",
+  "P1": {
+    "result": "Failed",
+    "cases_missing": [
+      "two_E8751_tau10_G0.05",
+      "two_E8751_tau30_G0.05",
+      "two_E21495_tau10_G0.05",
+      "two_E21495_tau30_G0.05",
+      "two_E33223_tau10_G0.05",
+      "two_E33223_tau30_G0.05"
+    ],
+    "busbar_share_900s_at_500mWK": {
+      "two_E8751_tau10_G0.5": 0.8976,
+      "two_E8751_tau30_G0.5": 0.898,
+      "two_E21495_tau10_G0.5": 0.8797,
+      "two_E21495_tau30_G0.5": 0.8808,
+      "two_E33223_tau10_G0.5": 0.8598,
+      "two_E33223_tau30_G0.5": 0.8617
+    },
+    "busbar_share_900s_at_50mWK": {
+      "two_E8751_tau10_G0.05": 0.6606,
+      "two_E8751_tau30_G0.05": 0.661,
+      "two_E21495_tau10_G0.05": 0.6231,
+      "two_E21495_tau30_G0.05": 0.624,
+      "two_E33223_tau10_G0.05": 0.5841,
+      "two_E33223_tau30_G0.05": 0.5858
+    },
+    "range_500": [
+      0.8598,
+      0.898
+    ],
+    "range_50": [
+      0.5841,
+      0.661
+    ],
+    "central": {
+      "500": 0.9,
+      "50": 0.4
+    }
+  },
+  "P2": {
+    "result": "Failed",
+    "cases": {
+      "two_E33223_tau10_G0.5": {
+        "e_mean_peak": 0.24166,
+        "t_e_mean_peak_s": 90.5,
+        "e_mean_first_above_0.05_s": 13.983,
+        "hottest_node_183.5C_s": 5.7,
+        "exceeds": true,
+        "first_exceedance_before_hottest_node_crossing": false,
+        "timing_basis": "0.5 s"
+      },
+      "two_E33223_tau30_G0.5": {
+        "e_mean_peak": 0.24308,
+        "t_e_mean_peak_s": 101.0,
+        "e_mean_first_above_0.05_s": 23.766,
+        "hottest_node_183.5C_s": 15.51,
+        "exceeds": true,
+        "first_exceedance_before_hottest_node_crossing": false,
+        "timing_basis": "0.5 s"
+      }
+    },
+    "central_peak": 0.08,
+    "part_exceeds_0.05": true,
+    "part_first_before_hottest_node_183.5C": false
+  },
+  "P3": {
+    "result": "Held",
+    "cases": {
+      "two_E33223_tau10_G0.1": {
+        "e_mean_peak": 0.04342,
+        "t_e_mean_peak_s": 205.0,
+        "e_mean_first_above_0.05_s": null,
+        "e_hot_peak": 0.52616,
+        "e_hot_first_above_0.05_s": 3.161,
+        "mean_never_above": true,
+        "hot_above": true
+      },
+      "two_E33223_tau30_G0.1": {
+        "e_mean_peak": 0.04372,
+        "t_e_mean_peak_s": 215.5,
+        "e_mean_first_above_0.05_s": null,
+        "e_hot_peak": 0.52116,
+        "e_hot_first_above_0.05_s": 7.998,
+        "mean_never_above": true,
+        "hot_above": true
+      }
+    },
+    "central_peak_mean": 0.03,
+    "other_energies_reported_not_scored": {
+      "two_E8751_tau10_G0.1": {
+        "e_mean_peak": 0.01417,
+        "e_hot_peak": 0.14479
+      },
+      "two_E8751_tau30_G0.1": {
+        "e_mean_peak": 0.01418,
+        "e_hot_peak": 0.14309
+      },
+      "two_E21495_tau10_G0.1": {
+        "e_mean_peak": 0.03136,
+        "e_hot_peak": 0.34903
+      },
+      "two_E21495_tau30_G0.1": {
+        "e_mean_peak": 0.03147,
+        "e_hot_peak": 0.34521
+      }
+    }
+  },
+  "P4": {
+    "result": "Held in part",
+    "a_Bi_p": 46.2,
+    "a_holds": true,
+    "central": 40,
+    "b_packing_condition_violated_with_no_cell_burning": true,
+    "b_other_conditions_violated_with_no_cell_burning": [
+      "varsigma (K_c / K_p), K_c across the layers 1.3 W/mK"
+    ],
+    "factors": {
+      "Bi_p (packing Biot number)": 46.2,
+      "varsigma (K_c / K_p), K_c across the layers 1.3 W/mK": 43.333333333333336,
+      "Bi_c (Bi_p / varsigma), K_c across the layers": 1.0661538461538462,
+      "R (burn number), 33.2 kJ over 30 s": 13393.52612110299,
+      "varsigma, K_c along the layers 25 W/mK (reported beside)": 833.3333333333334,
+      "Bi_c, K_c along the layers (reported beside)": 0.05544
+    }
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "busbar_share_900s_two_strips": {
+    "0.005": [
+      0.1427,
+      0.1828
+    ],
+    "0.01": [
+      0.2459,
+      0.3056
+    ],
+    "0.02": [
+      0.3853,
+      0.4604
+    ],
+    "0.05": [
+      0.5841,
+      0.661
+    ],
+    "0.1": [
+      0.7068,
+      0.7734
+    ],
+    "0.2": [
+      0.7927,
+      0.846
+    ],
+    "0.5": [
+      0.8598,
+      0.898
+    ]
+  },
+  "busbar_share_900s_one_strip": {
+    "0.005": 0.1608,
+    "0.01": 0.2727,
+    "0.02": 0.4181,
+    "0.05": 0.6146,
+    "0.1": 0.7292,
+    "0.2": 0.8054,
+    "0.5": 0.8614
+  },
+  "headline_to_crossing": {
+    "two_E33223_tau10_G0.05": {
+      "crossing_from_rerun_series_s": null,
+      "busbar_share_to_crossing": null,
+      "gap_share_to_crossing": null,
+      "radiation_share_to_crossing": null,
+      "bus_to_crossing": null,
+      "intake_to_crossing": null,
+      "room_loss_to_crossing": null,
+      "busbar_share_900s": 0.5841
+    },
+    "two_E33223_tau10_G0.1": {
+      "crossing_from_rerun_series_s": null,
+      "busbar_share_to_crossing": null,
+      "gap_share_to_crossing": null,
+      "radiation_share_to_crossing": null,
+      "bus_to_crossing": null,
+      "intake_to_crossing": null,
+      "room_loss_to_crossing": null,
+      "busbar_share_900s": 0.7068
+    },
+    "two_E33223_tau10_G0.2": {
+      "crossing_from_rerun_series_s": 8.1713,
+      "busbar_share_to_crossing": 0.8467,
+      "gap_share_to_crossing": 0.0851,
+      "radiation_share_to_crossing": 0.0682,
+      "bus_to_crossing": 294.238,
+      "intake_to_crossing": 347.507,
+      "room_loss_to_crossing": 1.623,
+      "busbar_share_900s": 0.7927
+    },
+    "two_E33223_tau10_G0.5": {
+      "crossing_from_rerun_series_s": 5.6963,
+      "busbar_share_to_crossing": 0.9371,
+      "gap_share_to_crossing": 0.0432,
+      "radiation_share_to_crossing": 0.0198,
+      "bus_to_crossing": 247.824,
+      "intake_to_crossing": 264.472,
+      "room_loss_to_crossing": 0.918,
+      "busbar_share_900s": 0.8598
+    },
+    "two_E33223_tau30_G0.05": {
+      "crossing_from_rerun_series_s": null,
+      "busbar_share_to_crossing": null,
+      "gap_share_to_crossing": null,
+      "radiation_share_to_crossing": null,
+      "bus_to_crossing": null,
+      "intake_to_crossing": null,
+      "room_loss_to_crossing": null,
+      "busbar_share_900s": 0.5858
+    },
+    "two_E33223_tau30_G0.1": {
+      "crossing_from_rerun_series_s": null,
+      "busbar_share_to_crossing": null,
+      "gap_share_to_crossing": null,
+      "radiation_share_to_crossing": null,
+      "bus_to_crossing": null,
+      "intake_to_crossing": null,
+      "room_loss_to_crossing": null,
+      "busbar_share_900s": 0.7087
+    },
+    "two_E33223_tau30_G0.2": {
+      "crossing_from_rerun_series_s": 20.5005,
+      "busbar_share_to_crossing": 0.8554,
+      "gap_share_to_crossing": 0.0899,
+      "radiation_share_to_crossing": 0.0547,
+      "bus_to_crossing": 519.495,
+      "intake_to_crossing": 607.33,
+      "room_loss_to_crossing": 5.456,
+      "busbar_share_900s": 0.7946
+    },
+    "two_E33223_tau30_G0.5": {
+      "crossing_from_rerun_series_s": 15.5136,
+      "busbar_share_to_crossing": 0.9342,
+      "gap_share_to_crossing": 0.0475,
+      "radiation_share_to_crossing": 0.0183,
+      "bus_to_crossing": 478.873,
+      "intake_to_crossing": 512.628,
+      "room_loss_to_crossing": 3.773,
+      "busbar_share_900s": 0.8617
+    }
+  },
+  "error_headline": {
+    "two_E33223_tau10_G0.05": {
+      "e_mean_peak": 0.01741,
+      "t_e_mean_peak_s": 253.5,
+      "e_mean_first_above_0.05_s": null,
+      "e_hot_peak": 0.29791,
+      "t_e_hot_peak_s": 21.5,
+      "e_hot_first_above_0.05_s": 4.124,
+      "hottest_node_183.5C_s": null
+    },
+    "two_E33223_tau10_G0.1": {
+      "e_mean_peak": 0.04342,
+      "t_e_mean_peak_s": 205.0,
+      "e_mean_first_above_0.05_s": null,
+      "e_hot_peak": 0.52616,
+      "t_e_hot_peak_s": 19.5,
+      "e_hot_first_above_0.05_s": 3.161,
+      "hottest_node_183.5C_s": null
+    },
+    "two_E33223_tau10_G0.2": {
+      "e_mean_peak": 0.10019,
+      "t_e_mean_peak_s": 149.5,
+      "e_mean_first_above_0.05_s": 41.478,
+      "e_hot_peak": 0.82921,
+      "t_e_hot_peak_s": 16.0,
+      "e_hot_first_above_0.05_s": 2.472,
+      "hottest_node_183.5C_s": 8.17
+    },
+    "two_E33223_tau10_G0.5": {
+      "e_mean_peak": 0.24166,
+      "t_e_mean_peak_s": 90.5,
+      "e_mean_first_above_0.05_s": 13.983,
+      "e_hot_peak": 1.23817,
+      "t_e_hot_peak_s": 11.5,
+      "e_hot_first_above_0.05_s": 1.829,
+      "hottest_node_183.5C_s": 5.7
+    },
+    "two_E33223_tau30_G0.05": {
+      "e_mean_peak": 0.01752,
+      "t_e_mean_peak_s": 263.5,
+      "e_mean_first_above_0.05_s": null,
+      "e_hot_peak": 0.29726,
+      "t_e_hot_peak_s": 34.0,
+      "e_hot_first_above_0.05_s": 10.423,
+      "hottest_node_183.5C_s": null
+    },
+    "two_E33223_tau30_G0.1": {
+      "e_mean_peak": 0.04372,
+      "t_e_mean_peak_s": 215.5,
+      "e_mean_first_above_0.05_s": null,
+      "e_hot_peak": 0.52116,
+      "t_e_hot_peak_s": 32.5,
+      "e_hot_first_above_0.05_s": 7.998,
+      "hottest_node_183.5C_s": null
+    },
+    "two_E33223_tau30_G0.2": {
+      "e_mean_peak": 0.1009,
+      "t_e_mean_peak_s": 159.5,
+      "e_mean_first_above_0.05_s": 51.395,
+      "e_hot_peak": 0.807,
+      "t_e_hot_peak_s": 30.0,
+      "e_hot_first_above_0.05_s": 6.285,
+      "hottest_node_183.5C_s": 20.5
+    },
+    "two_E33223_tau30_G0.5": {
+      "e_mean_peak": 0.24308,
+      "t_e_mean_peak_s": 101.0,
+      "e_mean_first_above_0.05_s": 23.766,
+      "e_hot_peak": 1.11905,
+      "t_e_hot_peak_s": 28.0,
+      "e_hot_first_above_0.05_s": 4.825,
+      "hottest_node_183.5C_s": 15.51
+    }
+  },
+  "error_all_two_strip": {
+    "e_mean_peak_max": 0.24308,
+    "e_mean_cases_above_0.05": [
+      "one_E21495_tau30_G0.1",
+      "one_E21495_tau30_G0.2",
+      "one_E21495_tau30_G0.5",
+      "two_E21495_tau10_G0.2",
+      "two_E21495_tau10_G0.5",
+      "two_E21495_tau30_G0.2",
+      "two_E21495_tau30_G0.5",
+      "two_E33223_tau10_G0.2",
+      "two_E33223_tau10_G0.5",
+      "two_E33223_tau30_G0.2",
+      "two_E33223_tau30_G0.5",
+      "two_E8751_tau10_G0.5",
+      "two_E8751_tau30_G0.5"
+    ],
+    "e_hot_cases_above_0.05": [
+      "one_E21495_tau30_G0.005",
+      "one_E21495_tau30_G0.01",
+      "one_E21495_tau30_G0.02",
+      "one_E21495_tau30_G0.05",
+      "one_E21495_tau30_G0.1",
+      "one_E21495_tau30_G0.2",
+      "one_E21495_tau30_G0.5",
+      "two_E21495_tau10_G0.005",
+      "two_E21495_tau10_G0.01",
+      "two_E21495_tau10_G0.02",
+      "two_E21495_tau10_G0.05",
+      "two_E21495_tau10_G0.1",
+      "two_E21495_tau10_G0.2",
+      "two_E21495_tau10_G0.5",
+      "two_E21495_tau30_G0.01",
+      "two_E21495_tau30_G0.02",
+      "two_E21495_tau30_G0.05",
+      "two_E21495_tau30_G0.1",
+      "two_E21495_tau30_G0.2",
+      "two_E21495_tau30_G0.5",
+      "two_E33223_tau10_G0.005",
+      "two_E33223_tau10_G0.01",
+      "two_E33223_tau10_G0.02",
+      "two_E33223_tau10_G0.05",
+      "two_E33223_tau10_G0.1",
+      "two_E33223_tau10_G0.2",
+      "two_E33223_tau10_G0.5",
+      "two_E33223_tau30_G0.005",
+      "two_E33223_tau30_G0.01",
+      "two_E33223_tau30_G0.02",
+      "two_E33223_tau30_G0.05",
+      "two_E33223_tau30_G0.1",
+      "two_E33223_tau30_G0.2",
+      "two_E33223_tau30_G0.5",
+      "two_E8751_tau10_G0.05",
+      "two_E8751_tau10_G0.1",
+      "two_E8751_tau10_G0.2",
+      "two_E8751_tau10_G0.5",
+      "two_E8751_tau30_G0.05",
+      "two_E8751_tau30_G0.1",
+      "two_E8751_tau30_G0.2",
+      "two_E8751_tau30_G0.5"
+    ]
+  },
+  "module": {
+    "epsilon": 0.25,
+    "Bi_p": 46.2,
+    "varsigma_across": 43.333333333333336,
+    "varsigma_along": 833.3333333333334,
+    "Bi_c_across": 1.0661538461538462,
+    "Bi_c_along": 0.05544,
+    "R": 53574.10448441196,
+    "R_condition_value": 4.0,
+    "R_factor": 13393.52612110299,
+    "U_pc": 15.0,
+    "Bi_bus_range_50_500": [
+      132.56545482703456,
+      1325.6545482703455
+    ],
+    "G_bus_over_G_gap_50_500": [
+      2.869382139113302,
+      28.693821391133017
+    ]
+  },
+  "biot": {
+    "crossing": {
+      "cap_disc_two_strips_G_bus_WK": 0.012387701837851697,
+      "annulus_two_strips_G_bus_WK": 0.04262337221427066,
+      "annulus_one_strip_G_bus_WK": 0.02131168610713533,
+      "A_disc_m2": 5.0265482457436686e-05,
+      "A_annulus_m2": 0.00017295252956175212,
+      "R_m": 0.01055,
+      "k_across_W_mK": 1.3
+    },
+    "per_conductance": [
+      {
+        "G_bus_WK": 0.005,
+        "Bi_cap_disc_two_strips": 0.4036261176969942,
+        "Bi_annulus_two_strips": 0.1173065325489652,
+        "Bi_annulus_one_strip": 0.2346130650979304
+      },
+      {
+        "G_bus_WK": 0.01,
+        "Bi_cap_disc_two_strips": 0.8072522353939884,
+        "Bi_annulus_two_strips": 0.2346130650979304,
+        "Bi_annulus_one_strip": 0.4692261301958608
+      },
+      {
+        "G_bus_WK": 0.02,
+        "Bi_cap_disc_two_strips": 1.6145044707879768,
+        "Bi_annulus_two_strips": 0.4692261301958608,
+        "Bi_annulus_one_strip": 0.9384522603917216
+      },
+      {
+        "G_bus_WK": 0.05,
+        "Bi_cap_disc_two_strips": 4.036261176969942,
+        "Bi_annulus_two_strips": 1.173065325489652,
+        "Bi_annulus_one_strip": 2.346130650979304
+      },
+      {
+        "G_bus_WK": 0.1,
+        "Bi_cap_disc_two_strips": 8.072522353939885,
+        "Bi_annulus_two_strips": 2.346130650979304,
+        "Bi_annulus_one_strip": 4.692261301958608
+      },
+      {
+        "G_bus_WK": 0.2,
+        "Bi_cap_disc_two_strips": 16.14504470787977,
+        "Bi_annulus_two_strips": 4.692261301958608,
+        "Bi_annulus_one_strip": 9.384522603917215
+      },
+      {
+        "G_bus_WK": 0.5,
+        "Bi_cap_disc_two_strips": 40.36261176969942,
+        "Bi_annulus_two_strips": 11.730653254896518,
+        "Bi_annulus_one_strip": 23.461306509793037
+      }
+    ]
+  },
+  "rerun_reproduction": {
+    "two_E33223_tau10_G0.5": true,
+    "two_E33223_tau10_G0.2": true,
+    "two_E33223_tau10_G0.1": true,
+    "two_E33223_tau10_G0.05": true,
+    "two_E33223_tau30_G0.5": true,
+    "two_E33223_tau30_G0.2": true,
+    "two_E33223_tau30_G0.1": true,
+    "two_E33223_tau30_G0.05": true
+  }
+}
