@@ -327,8 +327,14 @@ numbers_out = {
                                                  "t_e_hot_peak_s", "e_hot_first_above_0.05_s", "hottest_node_183.5C_s")}
                        for c in ER if c.startswith(f"two_E{int(round(E_HEAD))}_") and float(rows[c]["G_bus_WK"]) in G_HEAD},
     "error_all_two_strip": {"e_mean_peak_max": max(ER[c]["e_mean_peak"] for c in ER if rows[c]["arrangement"] == "two"),
-                            "e_mean_cases_above_0.05": sorted(c for c in ER if ER[c]["e_mean_peak"] > EPS_YARDSTICK),
-                            "e_hot_cases_above_0.05": sorted(c for c in ER if ER[c]["e_hot_peak"] > EPS_YARDSTICK)},
+                            "e_mean_cases_above_0.05": sorted(c for c in ER if rows[c]["arrangement"] == "two"
+                                                              and ER[c]["e_mean_peak"] > EPS_YARDSTICK),
+                            "e_hot_cases_above_0.05": sorted(c for c in ER if rows[c]["arrangement"] == "two"
+                                                             and ER[c]["e_hot_peak"] > EPS_YARDSTICK)},
+    "error_one_strip": {"e_mean_cases_above_0.05": sorted(c for c in ER if rows[c]["arrangement"] == "one"
+                                                          and ER[c]["e_mean_peak"] > EPS_YARDSTICK),
+                        "e_hot_cases_above_0.05": sorted(c for c in ER if rows[c]["arrangement"] == "one"
+                                                         and ER[c]["e_hot_peak"] > EPS_YARDSTICK)},
     "module": {"epsilon": eps_mod, "Bi_p": Bi_p, "varsigma_across": vs_rad, "varsigma_along": vs_ax,
                "Bi_c_across": Bi_p / vs_rad, "Bi_c_along": Bi_p / vs_ax, "R": R_num, "R_condition_value": 1 / eps_mod,
                "R_factor": R_num * eps_mod, "U_pc": U_pc,

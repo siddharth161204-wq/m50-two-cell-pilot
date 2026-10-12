@@ -119,5 +119,6 @@ legend = [Line2D([], [], color=AQUA, marker="s", lw=1.6, markersize=4.5, label="
 fig.legend(handles=legend, loc="lower center", ncol=3, fontsize=6.4, frameon=False, bbox_to_anchor=(0.5, -0.33),
            columnspacing=1.4, handlelength=2.0)
 for ext in ("png", "pdf"):
-    fig.savefig(os.path.join(args.out, f"addendum_figure.{ext}"), dpi=240, bbox_inches="tight")
+    fig.savefig(os.path.join(args.out, f"addendum_figure.{ext}"), dpi=240, bbox_inches="tight",
+                metadata={"CreationDate": None} if ext == "pdf" else None)
 print("wrote", os.path.join(args.out, "addendum_figure.png"))

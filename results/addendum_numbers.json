@@ -197,9 +197,6 @@
   "error_all_two_strip": {
     "e_mean_peak_max": 0.24308,
     "e_mean_cases_above_0.05": [
-      "one_E21495_tau30_G0.1",
-      "one_E21495_tau30_G0.2",
-      "one_E21495_tau30_G0.5",
       "two_E21495_tau10_G0.2",
       "two_E21495_tau10_G0.5",
       "two_E21495_tau30_G0.2",
@@ -212,13 +209,6 @@
       "two_E8751_tau30_G0.5"
     ],
     "e_hot_cases_above_0.05": [
-      "one_E21495_tau30_G0.005",
-      "one_E21495_tau30_G0.01",
-      "one_E21495_tau30_G0.02",
-      "one_E21495_tau30_G0.05",
-      "one_E21495_tau30_G0.1",
-      "one_E21495_tau30_G0.2",
-      "one_E21495_tau30_G0.5",
       "two_E21495_tau10_G0.005",
       "two_E21495_tau10_G0.01",
       "two_E21495_tau10_G0.02",
@@ -254,6 +244,22 @@
       "two_E8751_tau30_G0.1",
       "two_E8751_tau30_G0.2",
       "two_E8751_tau30_G0.5"
+    ]
+  },
+  "error_one_strip": {
+    "e_mean_cases_above_0.05": [
+      "one_E21495_tau30_G0.1",
+      "one_E21495_tau30_G0.2",
+      "one_E21495_tau30_G0.5"
+    ],
+    "e_hot_cases_above_0.05": [
+      "one_E21495_tau30_G0.005",
+      "one_E21495_tau30_G0.01",
+      "one_E21495_tau30_G0.02",
+      "one_E21495_tau30_G0.05",
+      "one_E21495_tau30_G0.1",
+      "one_E21495_tau30_G0.2",
+      "one_E21495_tau30_G0.5"
     ]
   },
   "module": {
